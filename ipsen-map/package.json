@@ -1,0 +1,26 @@
+{
+  "name": "ipsen-map",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev site",
+    "build": "vuepress build site"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.2.1",
+    "element-ui": "^2.4.11",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-parallax-js": "^0.2.3",
+    "vue-parallaxy": "^1.1.1",
+    "vuepress": "^1.0.0-alpha.30"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-blog": "^1.0.0-alpha.0",
+    "@vuepress/plugin-pagination": "^1.0.0-alpha.0"
+  }
+}
