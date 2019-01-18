@@ -1,6 +1,6 @@
 <template>
   <div id="main-content">
-    <div>
+    <div class="main-content">
     <Category />
     </div>
   </div>
@@ -20,8 +20,13 @@ components:{
 
 <style lang="scss" scoped>
 #main-content {
+  .main-content {
+  display: flex;
+  justify-content: center;
   min-height: 400px;
   background-color: rgb(243, 243, 243);
+  }
+
 }
 </style>
 
