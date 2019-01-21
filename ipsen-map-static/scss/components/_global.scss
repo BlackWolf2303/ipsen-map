@@ -1,0 +1,102 @@
+// Global
+
+body {
+  background-color: $white;
+}
+
+img {
+  display: block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: $place-holder;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: $place-holder;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: $place-holder;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: $place-holder;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; /* Firefox */
+  -webkit-box-sizing: border-box; /* Safari */
+}
+
+*::-moz-selection,
+*::selection {
+  background: #ddd;
+  text-shadow: none;
+}
+
+img::selection {
+  background: transparent;
+  text-shadow: none;
+}
+
+.disable,
+.btn:disabled {
+  opacity: 0.3;
+}
+
+.cover-bg {
+  position: absolute;
+  top: -9999px;
+  right: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.centerImg {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.section-title {
+  font-size: $f-size-xxl;
+  color: $black;
+  margin-bottom: 0;
+
+  @media only screen and (max-width: $scn-tablet) {
+    font-size: $f-size-xl;
+  }
+}
+
+.page-title {
+  font-size: $f-size-xxxl;
+  color: $black;
+  margin-bottom: 0;
+
+  @media only screen and (max-width: $scn-tablet) {
+    font-size: $f-size-xxl;
+  }
+}
