@@ -23,7 +23,10 @@ html {
 
 body {
   margin: 0;
-  
+  .form-control:focus, .btn:focus {
+    border-color: grey;
+    box-shadow: 0 0 0 0.15rem rgba(52, 52, 52, 0.25);
+  }
 }
 
 /**

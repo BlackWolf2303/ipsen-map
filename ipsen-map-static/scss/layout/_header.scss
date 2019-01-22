@@ -2,10 +2,12 @@ header {
   margin-top: 20px;
   .container {
     min-height: 120px;
+
   }
   .button-wrapper {
     float: right;
     .btn {
+      display: inline-block;
       background-color: white;
       color: black;
       font-weight: bold;
@@ -16,9 +18,18 @@ header {
       padding-top: 0;
       padding-bottom: 0;
       font-size: 13px;
+      @media (max-width: 992px){
+        max-width: 170px;
+        float: right;
+      }
+      min-width: 170px;
       &:hover {
         background-color: lightgrey;
       }
     }
+    .pin-list {
+        margin-bottom: 20px;
+    }
+
   }
 }

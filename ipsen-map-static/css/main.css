@@ -21,6 +21,9 @@ html {
  */
 body {
   margin: 0; }
+  body .form-control:focus, body .btn:focus {
+    border-color: grey;
+    box-shadow: 0 0 0 0.15rem rgba(52, 52, 52, 0.25); }
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -7786,11 +7789,15 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 .fjs-container {
-  background-color: transparent;
+  background-color: #efefef;
   display: flex;
+  justify-content: center;
   font-size: .9em;
-  min-height: 400px;
+  min-height: auto;
   overflow: auto; }
+  @media (max-width: 992px) {
+    .fjs-container {
+      display: block; } }
 
 .fjs-container:focus {
   outline: none; }
@@ -7799,9 +7806,16 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 50px;
   max-height: 700px;
   min-height: inherit;
-  min-width: 230px;
+  min-width: 250px;
   margin-right: 17px;
   overflow-y: auto; }
+  @media (max-width: 992px) {
+    .fjs-col {
+      display: block;
+      min-height: auto;
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto; } }
 
 .fjs-item a {
   border: 1px solid #c1c1c1;
@@ -7809,10 +7823,19 @@ a.text-dark:hover, a.text-dark:focus {
   align-items: flex-end;
   color: black;
   display: flex;
-  padding: 7px;
+  padding: 10px;
+  text-align: left;
   text-decoration: none; }
   .fjs-item a:hover {
     background-color: lightgrey; }
+
+.fjs-item-append {
+  display: inline-block;
+  float: right; }
+  .fjs-item-append::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f105"; }
 
 .fjs-item a:focus {
   outline: none; }
@@ -7844,7 +7867,8 @@ a.text-dark:hover, a.text-dark:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: bold; }
+  font-weight: bold;
+  min-width: 220px; }
 
 .fa-folder {
   color: #90E4FF; }
@@ -7896,6 +7920,11 @@ a.text-dark:hover, a.text-dark:focus {
 .leaf-col .meta:first-of-type {
   margin-top: 1.5em; }
 
+#welconme-message {
+  position: absolute;
+  display: inline-block;
+  height: 20px; }
+
 /* Base
 ========================================================================== */
 /* Layout
@@ -7907,6 +7936,7 @@ header {
   header .button-wrapper {
     float: right; }
     header .button-wrapper .btn {
+      display: inline-block;
       background-color: white;
       color: black;
       font-weight: bold;
@@ -7916,15 +7946,53 @@ header {
       padding-right: 35px;
       padding-top: 0;
       padding-bottom: 0;
-      font-size: 13px; }
+      font-size: 13px;
+      min-width: 170px; }
+      @media (max-width: 992px) {
+        header .button-wrapper .btn {
+          max-width: 170px;
+          float: right; } }
       header .button-wrapper .btn:hover {
         background-color: lightgrey; }
+    header .button-wrapper .pin-list {
+      margin-bottom: 20px; }
 
-#layout .container {
-  background-color: #efefef; }
+#layout .tree-content {
+  background-color: #efefef;
+  text-align: center; }
+  #layout .tree-content .message {
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+    #layout .tree-content .message a {
+      text-decoration: underline; }
+  #layout .tree-content .missing-content {
+    text-align: right;
+    margin-right: 15px; }
 
 /* Components
 ========================================================================== */
+#login-form {
+  font-family: sans-serif;
+  margin-top: 100px; }
+  #login-form .form-signin {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px; }
+  #login-form .form-control {
+    height: calc(4.5rem + 2px);
+    border-radius: 0; }
+  #login-form .forgot-password {
+    text-align: right; }
+    #login-form .forgot-password a {
+      text-decoration: underline;
+      color: black; }
+  #login-form .btn-lg, #login-form .btn-group-lg > .btn {
+    border-radius: 0; }
+  #login-form .btn-primary {
+    background-color: grey;
+    border-color: grey; }
+
 /* Pages
 ========================================================================== */
 

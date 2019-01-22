@@ -8,14 +8,24 @@
     <link rel="stylesheet" href="css/main.css" />
     <title>Ipsen map</title>
   </head>
-  <body>
-<section class="container">
-  <div class="row">
-  <div class="logo"><a href="#login.html"><img src="https://via.placeholder.com/100" alt="login"></a> </div>
-  <div class="form-login">
+  <body id="login-form" class="text-center">
+    <div class="container">
+      <form class="form-signin">
+        <img class="mb-4" src="https://via.placeholder.com/250x150" alt="" width="250" height="150">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="forgot-password mb-3">
+          <label>
+            <a href="#"> Forgot your password
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">OK</button>
+        <p class="mt-5 mb-3 text-muted">&copy; Ip-sen map demo 2018-2019</p>
+      </form>
     </div>
-  </div>
-</section>
-  </body>
+    </body>
   <!-- jQuery first, then bootstrap Js. -->
 </html>

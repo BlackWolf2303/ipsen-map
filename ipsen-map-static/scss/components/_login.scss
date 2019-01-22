@@ -1,0 +1,29 @@
+// Login
+#login-form {
+  font-family: sans-serif;
+  margin-top: 100px;
+  .form-signin {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
+  }
+  .form-control {
+    height: calc(4.5rem + 2px);
+    border-radius: 0;
+  }
+  .forgot-password {
+    text-align: right;
+    a {
+      text-decoration: underline;
+      color: black;
+    }
+    
+  }
+  .btn-lg {
+    border-radius: 0;
+  }
+  .btn-primary {
+    background-color: grey;
+    border-color: grey;
+  }
+}
