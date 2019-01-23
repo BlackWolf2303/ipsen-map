@@ -7969,6 +7969,8 @@ header {
   #layout .tree-content .missing-content {
     text-align: right;
     margin-right: 15px; }
+  #layout .tree-content .display-none {
+    display: none; }
 
 /* Components
 ========================================================================== */

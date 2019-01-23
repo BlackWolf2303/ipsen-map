@@ -43,6 +43,7 @@ var data = [
       }
     ]
   },
+
   {
     label: "GMAS",
     children: [ ]
@@ -56,12 +57,21 @@ var options = {};
 var f = finder(treeMap, data, options);
 f.on("leaf-selected", function(item) {
   console.log("Leaf selected", item);
+  //Print out data which contain in lv3
 });
+
 //<=======JQUERY START =========>
 jQuery(function($) {
-  //bootstrap tree view
-  $("ul.nav-tabs a").click(function(e) {
-    e.preventDefault();
-    $(this).tab("show");
-  });
+  //hidden tree level 1,2 for mobile
+  var screenMobile = $(window).width();
+  if((screenMobile < 992)) {
+    $("#treeMap").on('click',".fjs-item",function(e){
+      $(this).parents(".fjs-col").addClass("display-none");
+    });
+
+  }
+    //The back button
+
+    //modal component
+
 });
