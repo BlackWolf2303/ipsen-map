@@ -7814,6 +7814,7 @@ a.text-dark:hover, a.text-dark:focus {
       display: block;
       min-height: auto;
       max-width: 250px;
+      margin-top: 0px;
       margin-left: auto;
       margin-right: auto; } }
 
@@ -7960,16 +7961,33 @@ header {
 #layout .tree-content {
   background-color: #efefef;
   text-align: center; }
-  #layout .tree-content .message {
+  @media (max-width: 992px) {
+    #layout .tree-content .wrap-category-title {
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left; } }
+  #layout .tree-content #category-title {
     font-weight: bold;
     padding-top: 5px;
-    padding-bottom: 5px; }
-    #layout .tree-content .message a {
-      text-decoration: underline; }
+    padding-bottom: 5px;
+    color: black; }
+    @media (max-width: 992px) {
+      #layout .tree-content #category-title {
+        line-height: 38px;
+        padding-top: 11px;
+        padding-bottom: 11px; } }
+  @media (max-width: 992px) {
+    #layout .tree-content .back-icon {
+      display: inline-block; } }
+  #layout .tree-content .back-icon::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f053"; }
   #layout .tree-content .missing-content {
     text-align: right;
     margin-right: 15px; }
-  #layout .tree-content .display-none {
+  #layout .tree-content .hidden {
     display: none; }
 
 /* Components

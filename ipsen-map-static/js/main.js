@@ -60,17 +60,26 @@ f.on("leaf-selected", function(item) {
   //Print out data which contain in lv3
 });
 
+
 //<=======JQUERY START =========>
 jQuery(function($) {
   //hidden tree level 1,2 for mobile
   var screenMobile = $(window).width();
-  if((screenMobile < 992)) {
-    $("#treeMap").on('click',".fjs-item",function(e){
-      $(this).parents(".fjs-col").addClass("display-none");
-    });
 
+  if(screenMobile < 992) {
+    $("#treeMap").on('click',".fjs-item",function(){
+      $(this).parents(".fjs-col").addClass("hidden");
+      //change text of back-button 
+      var textBackButton = $(this).text();
+      $('#category-title').text(textBackButton);
+      //display icon back button only 
+      if($('#category-title').text()!=='Select a category'){       
+          $('.back-icon').removeClass('hidden');
+        }else {
+          $('.back-icon').addClass('hidden');
+        }
+    });
   }
-    //The back button
 
     //modal component
 
