@@ -60,19 +60,22 @@ jQuery(function($) {
     f.on("leaf-selected", function(item) {
       console.log("Leaf selected", item); //Print out data which contain in lv3
     });
+    
     if (screenMobile < 992) {
       $("#treeMap").on("click", ".fjs-item", function() {
-        $(this)
-          .parents(".fjs-col")
-          .addClass("hidden");
-        //change text of back-button
         var textBackButton = $(this).text();
-        CategoryNameStorage.push(textBackButton);
-        console.log(CategoryNameStorage);
+        
+        if(CategoryNameStorage.length <3){
+          $(this).parents(".fjs-col").addClass("hidden");
+          CategoryNameStorage.push(textBackButton);
+          console.log(CategoryNameStorage);
+          console.log(CategoryNameStorage.length);
+          $("#category-title").text(CategoryNameStorage[CategoryNameStorage.length - 1]);
+        }
 
-        $("#category-title").text(
-          CategoryNameStorage[CategoryNameStorage.length - 1]
-        );
+        //change text of back-button
+        
+
         $(".back-icon").toggleClass(
           "hidden",
           textBackButton === "Select a category"
