@@ -7803,12 +7803,12 @@ a.text-dark:hover, a.text-dark:focus {
   outline: none; }
 
 .fjs-col {
-  margin-top: 50px;
   max-height: 700px;
   min-height: inherit;
   min-width: 250px;
-  margin-right: 17px;
-  overflow-y: auto; }
+  overflow-y: auto;
+  margin-left: 7px;
+  margin-right: 7px; }
   @media (max-width: 992px) {
     .fjs-col {
       display: block;
@@ -7836,7 +7836,7 @@ a.text-dark:hover, a.text-dark:focus {
   .fjs-item-append::after {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f105"; }
+    content: "\f054"; }
 
 .fjs-item a:focus {
   outline: none; }
@@ -7962,21 +7962,22 @@ header {
   background-color: #efefef;
   text-align: center; }
   @media (max-width: 992px) {
-    #layout .tree-content .wrap-category-title {
+    #layout .tree-content #wrap-category-title {
       max-width: 250px;
       margin-left: auto;
       margin-right: auto;
       text-align: left; } }
   #layout .tree-content #category-title {
+    display: inline-block;
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
     color: black; }
     @media (max-width: 992px) {
       #layout .tree-content #category-title {
-        line-height: 38px;
-        padding-top: 11px;
-        padding-bottom: 11px; } }
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 38px; } }
   @media (max-width: 992px) {
     #layout .tree-content .back-icon {
       display: inline-block; } }
@@ -7985,10 +7986,21 @@ header {
     font-weight: 900;
     content: "\f053"; }
   #layout .tree-content .missing-content {
-    text-align: right;
-    margin-right: 15px; }
+    text-align: left;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 10px; }
+    #layout .tree-content .missing-content a {
+      text-decoration: underline;
+      color: black;
+      font-weight: bold; }
   #layout .tree-content .hidden {
     display: none; }
+  #layout .tree-content .missing-content-position-1 {
+    margin-left: 475px; }
+  #layout .tree-content .missing-content-position-2 {
+    margin-left: 605px; }
 
 /* Components
 ========================================================================== */
