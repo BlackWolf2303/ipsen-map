@@ -1,0 +1,34 @@
+// Modal
+.modal {
+  .modal-dialog {
+    .modal-title {
+      font-weight: bold;
+    }
+    .modal-body {
+      li {
+        list-style-type: disc;
+      }
+
+      .suggestedContent {
+        border: 1px solid grey;
+        margin-bottom: 10px;
+      }
+      .selected-platform {
+        label {
+          margin-right: 10px;
+        }
+      }
+
+    }
+    .suggestion-submit-button {
+      min-width: 322px;
+      float: left;
+    }
+  }
+  @media (min-width: 576px){
+    .modal-dialog {
+      max-width: 350px;
+    }
+  }
+
+}

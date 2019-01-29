@@ -26,10 +26,20 @@
           <div class="pin-history-button col">
             <div class="button-wrapper row">
               <div class="pin-list col-lg-6">
-                <button class=" btn btn-format col-lg-12 ">Pin list</button>
+                <button
+                  class="btn btn-format col-lg-12"
+                  data-toggle="modal"
+                  data-target="#pinListModal"
+                >
+                  Pin list
+                </button>
               </div>
               <div class="col-lg-6">
-                <button class="btn btn-format col-lg-12 ">
+                <button
+                  class="btn btn-format col-lg-12"
+                  data-toggle="modal"
+                  data-target="#searchHistoryModal"
+                >
                   Search history
                 </button>
               </div>
@@ -46,11 +56,15 @@
             <div id="category-title">Select a category</div>
           </div>
 
-          <div id="treeMap"></div>
+          <!-- <div id="treeMap"></div> -->
+          <div id="searchMap" class="fjs-container"></div>
           <div class="wrap-message">
             <p class="message missing-content">
               Didn't find what you're looking for?<br />
-              <a href="#"
+              <a
+                id="suggestion-button"
+                data-toggle="modal"
+                data-target="#suggestionFormModal"
                 >Please submit additional content suggestions or share your
                 feedback with us.</a
               >
@@ -60,8 +74,9 @@
       </div>
     </section>
 
+    <!--============= ALL POP-UP================= -->
     <!-- Button trigger modal -->
-    <div class="container">
+    <!-- <div class="container">
       <button
         type="button"
         class="btn btn-primary"
@@ -70,21 +85,21 @@
       >
         Demo modal
       </button>
-    </div>
+    </div> -->
 
-    <!-- Modal -->
+    <!-- Pin list modal -->
     <div
       class="modal fade"
-      id="exampleModalCenter"
+      id="pinListModal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
+      aria-labelledby="pinListModal"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <h6 class="modal-title" id="searchHistoryTitle">Pin List</h6>
             <button
               type="button"
               class="close"
@@ -94,7 +109,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">
+            <ul>
+              <li><a href="#">Pin list 01</a></li>
+              <li><a href="#">Pin list 02</a></li>
+              <li><a href="#">Pin list 03</a></li>
+              <li><a href="#">Pin list 04</a></li>
+            </ul>
+          </div>
           <div class="modal-footer">
             <button
               type="button"
@@ -103,8 +125,115 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search History modal -->
+    <div
+      class="modal fade"
+      id="searchHistoryModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="searchHistoryModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title" id="searchHistoryTitle">Search History</h6>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <li>Aliquam tincidunt</li>
+              <li>Nunc dignissim</li>
+              <li>nteger vitae</li>
+              <li>Fusce pellentesque suscipit nibh.</li>
+              <li>Donec quis dui at dolor tempor interdum.</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Suggestion submit form modal -->
+    <div
+      class="modal fade"
+      id="suggestionFormModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="suggestionFormModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <form action="#" method="post">
+            <div class="modal-header">
+              <h6 class="modal-title" id="suggestionFormTitle">
+                Submit additional content suggestions to us
+              </h6>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Suggested Content</p>
+              <textarea
+                name="Suggested Content"
+                class="suggestedContent"
+                placeholder=" Type..."
+                cols="44.5"
+                rows="3"
+              ></textarea>
+              <div class="selected-platform">
+                <label><input type="checkbox">Chat Bot</label>
+                <label><input type="checkbox">Online Interactive Map</label>
+              </div>
+
+              <p>I have some feedback to improve</p>
+              <textarea
+                name="Suggested Content"
+                class="suggestedContent"
+                placeholder=" Type..."
+                cols="44.5"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary suggestion-submit-button"
+                data-dismiss="modal"
+              >
+                Sutmit
+              </button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </form>
         </div>
       </div>
     </div>

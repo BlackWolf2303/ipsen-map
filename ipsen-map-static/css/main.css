@@ -8004,6 +8004,120 @@ header {
 
 /* Components
 ========================================================================== */
+#searchMap .fjs-container {
+  background-color: #efefef;
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+  min-height: auto;
+  overflow: auto; }
+  @media (max-width: 992px) {
+    #searchMap .fjs-container {
+      display: block; } }
+#searchMap .fjs-container:focus {
+  outline: none; }
+#searchMap .fjs-col {
+  max-height: 700px;
+  min-height: inherit;
+  min-width: 250px;
+  overflow-y: auto;
+  margin-left: 7px;
+  margin-right: 7px; }
+  @media (max-width: 992px) {
+    #searchMap .fjs-col {
+      display: block;
+      min-height: auto;
+      max-width: 250px;
+      margin-top: 0px;
+      margin-left: auto;
+      margin-right: auto; } }
+#searchMap .fjs-item a {
+  border: 1px solid #c1c1c1;
+  border-top: 0px;
+  align-items: flex-end;
+  color: black;
+  display: flex;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none; }
+  #searchMap .fjs-item a:hover {
+    background-color: lightgrey; }
+#searchMap .fjs-item-append {
+  display: inline-block;
+  float: right; }
+  #searchMap .fjs-item-append::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054"; }
+#searchMap .fjs-item a:focus {
+  outline: none; }
+#searchMap .fjs-item a span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+#searchMap .fjs-item a span i {
+  padding-right: 5px; }
+#searchMap .fjs-active a {
+  background-color: lightgray;
+  color: black; }
+#searchMap .fjs-col:nth-last-child(2) .fjs-active a,
+#searchMap .fjs-col:last-child .fjs-active a {
+  background-color: lightgrey;
+  color: black; }
+#searchMap .fjs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: white; }
+#searchMap .fjs-item-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  min-width: 220px; }
+#searchMap .fa-folder {
+  color: #90e4ff; }
+#searchMap .fa-file-o {
+  color: #a7a7a7; }
+#searchMap .fa-external-link {
+  color: #629eff;
+  font-size: smaller; }
+#searchMap .fa-caret-right {
+  color: gray;
+  padding: 0 0 0 0.5em; }
+#searchMap .fjs-col:nth-last-child(2) .fjs-active a .fa-caret-right,
+#searchMap .fjs-col:last-child .fjs-active a .fa-caret-right {
+  color: black; }
+#searchMap .leaf-col {
+  align-items: center;
+  border-right: 0;
+  display: flex;
+  flex: 2;
+  justify-content: center;
+  padding: 0 1.5em; }
+#searchMap .leaf-row {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3em;
+  text-align: center; }
+#searchMap .leaf-row .fa {
+  color: #a7a7a7;
+  font-size: 4em;
+  margin: 20px 0; }
+#searchMap .leaf-row .fa-refresh {
+  font-size: 2em; }
+#searchMap .leaf-col .meta {
+  font-size: 0.7em; }
+#searchMap .leaf-col .meta strong {
+  color: #c1c1c1;
+  font-weight: normal; }
+#searchMap .leaf-col .meta:first-of-type {
+  margin-top: 1.5em; }
+#searchMap #welconme-message {
+  position: absolute;
+  display: inline-block;
+  height: 20px; }
+
 #login-form {
   font-family: sans-serif;
   margin-top: 100px; }
@@ -8024,6 +8138,22 @@ header {
   #login-form .btn-primary {
     background-color: grey;
     border-color: grey; }
+
+.modal .modal-dialog .modal-title {
+  font-weight: bold; }
+.modal .modal-dialog .modal-body li {
+  list-style-type: disc; }
+.modal .modal-dialog .modal-body .suggestedContent {
+  border: 1px solid grey;
+  margin-bottom: 10px; }
+.modal .modal-dialog .modal-body .selected-platform label {
+  margin-right: 10px; }
+.modal .modal-dialog .suggestion-submit-button {
+  min-width: 322px;
+  float: left; }
+@media (min-width: 576px) {
+  .modal .modal-dialog {
+    max-width: 350px; } }
 
 /* Pages
 ========================================================================== */
