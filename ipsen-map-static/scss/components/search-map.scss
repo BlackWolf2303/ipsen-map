@@ -1,17 +1,25 @@
 // Search Map
-#searchMap {
-  .fjs-container {
-    background-color: rgb(239, 239, 239);
+.fjs-container {
+  display: flex;
+  position: relative;
+  min-height: 500px;
+  font-size: 0.9em;
+  overflow: auto;
+  background-color: rgb(239, 239, 239);
+  @media (max-width: 992px) {
     display: flex;
-    justify-content: center;
-    font-size: 0.9em;
-    min-height: auto;
-    overflow: auto;
-    @media (max-width: 992px) {
-      display: block;
-    }
   }
-
+}
+#searchMap {
+  position: relative;
+  #welconme-message {
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+  }
+  .active {
+    background-color: lightgray;
+  }
   .fjs-container:focus {
     outline: none;
   }
@@ -45,6 +53,7 @@
     text-decoration: none;
     &:hover {
       background-color: lightgrey;
+      cursor: pointer;
     }
   }
   .fjs-item-append {
@@ -158,9 +167,20 @@
   .leaf-col .meta:first-of-type {
     margin-top: 1.5em;
   }
-  #welconme-message {
+  .SearchMapLv1 {
+    background-color: rgb(47, 144, 171);
+  }
+  .SearchMapLv2 {
     position: absolute;
-    display: inline-block;
-    height: 20px;
+    top: 0;
+    left: 260px;
+    background-color: rgb(76, 170, 196)
+    
+  }
+  .SearchMapLv2 >li > .fjs-list {
+    position: absolute;
+    top: 0;
+    left: 260px;
+    background-color: rgb(158, 210, 224);
   }
 }

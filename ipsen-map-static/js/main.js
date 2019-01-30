@@ -9,6 +9,8 @@
 
 //<=======JQUERY START =========>
 jQuery(function($) {
+  let CategoryNameStorage = ["Select a category"];
+
   $.ajax({
     async: false,
     global: false,
@@ -16,13 +18,11 @@ jQuery(function($) {
     dataType: "json",
     success: initSearchMapUI,
   });
-  
   function initSearchMap(data) {
     var searchMap='';
-
     searchMap += "<ul class=\"fjs-list\">";   
     $.each(data,function(index,item){
-      searchMap+= "<li class=\"fjs-item fjs-has-children fjs-active\"> "+item.label ; 
+      searchMap+= "<li class=\"fjs-item fjs-has-children\" id=\""+item.id+"\"><a><div class=\"fjs-item-prepend\"></div><div class=\"fjs-item-content\">"+item.label+"</div><div class=\"fjs-item-append\"></div></a>" ; 
       if(item.children) {
         searchMap += initSearchMap(item.children);
       }
@@ -31,12 +31,35 @@ jQuery(function($) {
     searchMap+="</ul> ";
     return searchMap;
   }
-  
+  //innit Search Map
   function initSearchMapUI(data) {
     $("#searchMap").append(initSearchMap(data));
+      //add rootLayer id for categories
+    $("#searchMap>ul").each(function(index){
+    $(this).attr("id","rootLayer"+(index+1)).addClass("SearchMapLv1"); 
+    $("#rootLayer"+(index+1)+">li>ul").each(function(i){
+      $(this).attr("id","rootLayer"+(index+1)+"-"+(i+1)).addClass("SearchMapLv2");
+    });
+    })
+
+    $("#searchMap").on("click", ".fjs-item", function() {
+      $("#searchMap").find($(".fjs-item")).removeClass('active');
+      $(this).addClass("active");
+      var textBackButton = $(this).attr('id');
+      CategoryNameStorage.push(textBackButton);
+      // console.log(CategoryNameStorage);
+    });
+
   }
 
+  
 
+  // $("#searchMap>ul>li").each(function(){
+  //   $(this).addClass("SearchMapLv1"); 
+  //   $(".SearchMapLv1>ul>li").each(function(){
+  //     $(this).addClass("SearchMapLv2");
+  //   });
+  // })
   // function initFinderUI(data) {
   //   var treeMap = $("#treeMap");
   //   var screenMobile = $(window).width();
@@ -111,7 +134,14 @@ jQuery(function($) {
   //       }
   //     });
   //   }
-  //   //backing treeMap button
   // }
 
 });
+
+
+//Hints
+// History: {
+//   "akjsdaksjd": ["item1", "item1.2", "item1.2.1"]
+// }
+
+// <li id="akjsdaksjd"><a></a> <ul /></li>

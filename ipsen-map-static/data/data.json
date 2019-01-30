@@ -1,40 +1,52 @@
 [
   {
+    "id": "thearapeutic-area",
     "label": "Thearapeutic Area",
     "children": [
       {
+        "id": "rare-disease",
         "label": "Rare Disease",
         "children": [
           {
+            "id": "publication",
             "label": "Publication"
           },
           {
+            "id": "key-guidelines-others",
             "label": "Key Guidelines & Others"
           },
           {
+            "id": "training",
             "label": "Training"
           },
           {
+            "id": "clinical-trials",
             "label": "Clinical Trials"
           },
           {
+            "id": "congress-hightlights",
             "label": "Congress Hightlights"
           },
           {
+            "id": "core-content",
             "label": "Core content"
           },
           {
+            "id": "contact",
             "label": "Contact"
           },
           {
+            "id": "rare-diseases-share-point",
             "label": "Rare Diseases SharePoint"
           }
         ]
       },
       {
+        "id": "item-1-b",
         "label": "Item 1B",
         "children": [
           {
+            "id": "item-1-b1",
             "label": "Item 1B1"
           }
         ]
@@ -42,10 +54,12 @@
     ]
   },
   {
+    "id": "gmas",
     "label": "GMAS",
     "children": []
   },
   {
+    "id": "useful-share-point-links",
     "label": "Useful SharePoint Links",
     "children": []
   }
