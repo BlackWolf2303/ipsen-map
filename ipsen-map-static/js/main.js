@@ -1,16 +1,8 @@
 //finderjs
-
-// var data = (function() {
-
-//   return json;
-//   var options = {};
-// })
-// ();
-
 //<=======JQUERY START =========>
 jQuery(function($) {
-  let CategoryNameStorage = ["Select a category"];
-
+  let CategoryNameStorage = [];
+  let dislayScreen = $(window).width();
   $.ajax({
     async: false,
     global: false,
@@ -36,18 +28,41 @@ jQuery(function($) {
     $("#searchMap").append(initSearchMap(data));
       //add rootLayer id for categories
     $("#searchMap>ul").each(function(index){
+      if (dislayScreen >= 992) {
+        $(this).find("ul").addClass('hidden');
+      }      
     $(this).attr("id","rootLayer"+(index+1)).addClass("SearchMapLv1"); 
     $("#rootLayer"+(index+1)+">li>ul").each(function(i){
       $(this).attr("id","rootLayer"+(index+1)+"-"+(i+1)).addClass("SearchMapLv2");
     });
     })
 
-    $("#searchMap").on("click", ".fjs-item", function() {
-      $("#searchMap").find($(".fjs-item")).removeClass('active');
-      $(this).addClass("active");
+    $(".fjs-item").on("click", function(e) {
+      e.stopPropagation();
+      //active clicked button
+      $("#searchMap>ul .active").removeClass('active');
+      $(this).addClass('active');
+      $(this).parents('li').addClass('active');
+
+
       var textBackButton = $(this).attr('id');
       CategoryNameStorage.push(textBackButton);
-      // console.log(CategoryNameStorage);
+
+      //open child categories
+      $(this).parent().children().each(function() {
+        // $(this).toggleClass('hidden',$(this).hasClass('active'));
+        if($(this).hasClass('active')){
+          $(this).children('ul').removeClass('hidden');
+        }else {
+          $(this).children('ul').addClass('hidden');
+        }
+      });
+      
+      //====MOBILE=====
+      if (dislayScreen < 992) {
+        if($(this).parent().hasClass('SearchMapLv1')){
+          $('#searchMap').css()
+        }
     });
 
   }

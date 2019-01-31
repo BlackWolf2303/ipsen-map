@@ -7863,6 +7863,8 @@ header {
     margin-left: 475px; }
   #layout .tree-content .missing-content-position-2 {
     margin-left: 605px; }
+#layout #suggestion-button {
+  cursor: pointer; }
 
 /* Components
 ========================================================================== */
@@ -7878,7 +7880,11 @@ header {
       display: flex; } }
 
 #searchMap {
-  position: relative; }
+  position: absolute;
+  margin-left: 50px; }
+  @media (max-width: 992px) {
+    #searchMap {
+      margin-left: 0; } }
   #searchMap #welconme-message {
     position: absolute;
     display: inline-block;
@@ -7960,18 +7966,6 @@ header {
   #searchMap .fjs-col:nth-last-child(2) .fjs-active a .fa-caret-right,
   #searchMap .fjs-col:last-child .fjs-active a .fa-caret-right {
     color: black; }
-  #searchMap .leaf-col {
-    align-items: center;
-    border-right: 0;
-    display: flex;
-    flex: 2;
-    justify-content: center;
-    padding: 0 1.5em; }
-  #searchMap .leaf-row {
-    display: flex;
-    flex-direction: column;
-    font-size: 1.3em;
-    text-align: center; }
   #searchMap .leaf-row .fa {
     color: #a7a7a7;
     font-size: 4em;
@@ -7986,17 +7980,17 @@ header {
   #searchMap .leaf-col .meta:first-of-type {
     margin-top: 1.5em; }
   #searchMap .SearchMapLv1 {
-    background-color: #2f90ab; }
+    background-color: #b84747; }
   #searchMap .SearchMapLv2 {
     position: absolute;
     top: 0;
     left: 260px;
-    background-color: #4caac4; }
+    background-color: #51af7b; }
   #searchMap .SearchMapLv2 > li > .fjs-list {
     position: absolute;
     top: 0;
     left: 260px;
-    background-color: #9ed2e0; }
+    background-color: #67aec2; }
 
 #login-form {
   font-family: sans-serif;
