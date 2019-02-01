@@ -28,8 +28,9 @@
             "label": "Congress Hightlights"
           },
           {
-            "id": "core-content",
-            "label": "Core content"
+            "id": "core-content", // ID
+            "label": "Core content",// name of category display on button
+            "desc" :" some test" // this content will display when we click on lv3 button
           },
           {
             "id": "contact",

@@ -1,7 +1,7 @@
 //finderjs
 //<=======JQUERY START =========>
 jQuery(function($) {
-  let CategoryNameStorage = [];
+  let CategoryIdStorage = [];
   let dislayScreen = $(window).width();
   $.ajax({
     async: false,
@@ -30,23 +30,36 @@ jQuery(function($) {
     $("#searchMap>ul").each(function(index){
       if (dislayScreen >= 992) {
         $(this).find("ul").addClass('hidden');
-      }      
-    $(this).attr("id","rootLayer"+(index+1)).addClass("SearchMapLv1"); 
-    $("#rootLayer"+(index+1)+">li>ul").each(function(i){
-      $(this).attr("id","rootLayer"+(index+1)+"-"+(i+1)).addClass("SearchMapLv2");
-    });
+      }    
+      $(this).addClass("SearchMapLv1"); //.attr("id","rootLayer"+(index+1))
+
+      $(".SearchMapLv1>li>ul").each(function(){
+          $(this).addClass("SearchMapLv2"); //.attr("id","rootLayer"+(index+1)+"-"+(i+1))
+          $(".SearchMapLv2>li>ul").each(function(){
+            $(this).addClass("SearchMapLv3");
+          });
+        });
     })
 
     $(".fjs-item").on("click", function(e) {
       e.stopPropagation();
+
+    //====HANDLE CATEGORY STORAGE=====
+      let categoryId = $(this).attr('id');
+      currentId = $(this);
+      let listItem = $(this).parent();
+      let lastItemCategoryId = CategoryIdStorage[CategoryIdStorage.length-1];
+
+      CategoryIdStorage.push(categoryId);
+      // if($(this).siblings().attr('id'));
+
+      console.log(CategoryIdStorage);
+      // console.log($(this).parent());
+
       //active clicked button
       $("#searchMap>ul .active").removeClass('active');
       $(this).addClass('active');
       $(this).parents('li').addClass('active');
-
-
-      var textBackButton = $(this).attr('id');
-      CategoryNameStorage.push(textBackButton);
 
       //open child categories
       $(this).parent().children().each(function() {
@@ -56,13 +69,19 @@ jQuery(function($) {
         }else {
           $(this).children('ul').addClass('hidden');
         }
+
+
       });
       
       //====MOBILE=====
       if (dislayScreen < 992) {
-        if($(this).parent().hasClass('SearchMapLv1')){
-          $('#searchMap').css()
+        if($(this).parent().hasClass('SearchMapLv1')){          
+          $('#searchMap').css("transform","translateX(-155%)");
         }
+        if($(this).parent().hasClass('SearchMapLv2')){          
+          $('#searchMap').css("transform","translateX(-262%)");
+        }
+      }
     });
 
   }
