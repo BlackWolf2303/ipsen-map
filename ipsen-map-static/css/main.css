@@ -7902,7 +7902,7 @@ header {
     display: inline-block;
     height: 20px; }
   #searchMap .active {
-    background-color: lightgray; }
+    background-color: #C1A87d; }
   #searchMap .fjs-container:focus {
     outline: none; }
   #searchMap .fjs-col {
@@ -7929,7 +7929,7 @@ header {
     text-align: left;
     text-decoration: none; }
     #searchMap .fjs-item a:hover {
-      background-color: lightgrey;
+      background-color: #C1A87d;
       cursor: pointer; }
   #searchMap .fjs-item-append {
     display: inline-block;
@@ -7947,11 +7947,11 @@ header {
   #searchMap .fjs-item a span i {
     padding-right: 5px; }
   #searchMap .fjs-active a {
-    background-color: lightgray;
+    background-color: lightgoldenrodyellow;
     color: black; }
   #searchMap .fjs-col:nth-last-child(2) .fjs-active a,
   #searchMap .fjs-col:last-child .fjs-active a {
-    background-color: lightgrey;
+    background-color: lightgoldenrodyellow;
     color: black; }
   #searchMap .fjs-list {
     list-style: none;
@@ -7991,18 +7991,35 @@ header {
   #searchMap .leaf-col .meta:first-of-type {
     margin-top: 1.5em; }
   #searchMap .SearchMapLv1 {
-    background-color: #b84747; }
+    background-color: #00B4EB; }
   #searchMap .SearchMapLv2 {
     position: absolute;
     top: 0;
-    left: 260px;
-    background-color: #51af7b; }
-  #searchMap .SearchMapLv2 > li > .fjs-list {
+    left: 0;
+    background-color: #5AB190;
+    animation: slide 0.3s forwards;
+    -webkit-animation: slide 0.3s forwards; }
+  #searchMap .SearchMapLv3 {
     position: absolute;
     top: 0;
-    left: 260px;
-    background-color: #67aec2; }
-
+    left: 0;
+    background-color: #C9E3DB;
+    animation: slide 0.3s forwards;
+    -webkit-animation: slide 0.3s forwards; }
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    left: 230px; }
+  100% {
+    opacity: 1;
+    left: 260px; } }
+@keyframes slide {
+  0% {
+    opacity: 0;
+    left: 230px; }
+  100% {
+    opacity: 1;
+    left: 260px; } }
 #login-form {
   font-family: sans-serif;
   margin-top: 100px; }

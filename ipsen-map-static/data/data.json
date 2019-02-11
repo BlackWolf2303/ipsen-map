@@ -2,53 +2,64 @@
   {
     "id": "thearapeutic-area",
     "label": "Thearapeutic Area",
+    "desc" :" some test", 
     "children": [
       {
         "id": "rare-disease",
         "label": "Rare Disease",
+        "desc" :" some test", 
         "children": [
           {
             "id": "publication",
-            "label": "Publication"
+            "label": "Publication",
+            "desc" :" some test" 
           },
           {
             "id": "key-guidelines-others",
-            "label": "Key Guidelines & Others"
+            "label": "Key Guidelines & Others",
+            "desc" :" some test" 
           },
           {
             "id": "training",
-            "label": "Training"
+            "label": "Training",
+            "desc" :" some test" 
           },
           {
             "id": "clinical-trials",
-            "label": "Clinical Trials"
+            "label": "Clinical Trials",
+            "desc" :" some test" 
           },
           {
             "id": "congress-hightlights",
-            "label": "Congress Hightlights"
+            "label": "Congress Hightlights",
+            "desc" :" some test" 
           },
           {
-            "id": "core-content", // ID
-            "label": "Core content",// name of category display on button
-            "desc" :" some test" // this content will display when we click on lv3 button
+            "id": "core-content", 
+            "label": "Core content",
+            "desc" :" some test" 
           },
           {
             "id": "contact",
-            "label": "Contact"
+            "label": "Contact",
+            "desc" :" some test" 
           },
           {
             "id": "rare-diseases-share-point",
-            "label": "Rare Diseases SharePoint"
+            "label": "Rare Diseases SharePoint",
+            "desc" :" some test"
           }
         ]
       },
       {
         "id": "item-1-b",
         "label": "Item 1B",
+        "desc" :" some test",
         "children": [
           {
             "id": "item-1-b1",
-            "label": "Item 1B1"
+            "label": "Item 1B1",
+            "desc" :" some test"
           }
         ]
       }
@@ -57,17 +68,26 @@
   {
     "id": "gmas",
     "label": "GMAS",
+    "desc" :" some test",
     "children": [
       {
-        "id": "124323543",
-        "label": "bedryhrtbfdg",
-        "children": []
+        "id": "example-2.1",
+        "label": "example 2.1",
+        "desc" :" some test",
+        "children": [
+          {
+            "id": "example-2.1.1",
+            "label": "example 2.1.1",
+            "desc" :" some test"
+          }
+        ]
       }
     ]
   },
   {
     "id": "useful-share-point-links",
     "label": "Useful SharePoint Links",
+    "desc" :" some test",
     "children": []
   }
 ]

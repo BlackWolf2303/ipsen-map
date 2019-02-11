@@ -43,43 +43,63 @@ jQuery(function($) {
 
     $(".fjs-item").on("click", function(e) {
       e.stopPropagation();
-
-    //====HANDLE CATEGORY STORAGE=====
-      let categoryId = $(this).attr('id');
-      currentId = $(this);
-      let listItem = $(this).parent();
-      let lastItemCategoryId = CategoryIdStorage[CategoryIdStorage.length-1];
-
-      CategoryIdStorage.push(categoryId);
-      // if($(this).siblings().attr('id'));
-
-      console.log(CategoryIdStorage);
-      // console.log($(this).parent());
-
       //active clicked button
       $("#searchMap>ul .active").removeClass('active');
       $(this).addClass('active');
       $(this).parents('li').addClass('active');
 
-      //open child categories
-      $(this).parent().children().each(function() {
-        // $(this).toggleClass('hidden',$(this).hasClass('active'));
-        if($(this).hasClass('active')){
-          $(this).children('ul').removeClass('hidden');
-        }else {
-          $(this).children('ul').addClass('hidden');
-        }
-
-
-      });
+    //====HANDLE CATEGORY STORAGE=====
+      // let categoryId = $(this).attr('id');
       
+      let categoryId = $('#searchMap').find('.active').map(function() { return this.id; }).get();
+      let lastItemCategoryId = CategoryIdStorage[CategoryIdStorage.length-1];
+
+      //reset Id storage and add new ID
+      CategoryIdStorage = [];
+      CategoryIdStorage = categoryId;
+
+      console.log(CategoryIdStorage);
+
+      if (dislayScreen >= 992) {
+        $(this).parent().children().each(function() {
+          // $(this).toggleClass('hidden',$(this).hasClass('active'));
+          if($(this).hasClass('active')){  
+            $(this).siblings().children('ul').addClass('hidden');       
+            $(this).children('ul').toggleClass('hidden');
+          }
+        });
+      }
+
+
       //====MOBILE=====
       if (dislayScreen < 992) {
-        if($(this).parent().hasClass('SearchMapLv1')){          
+        //transform each category table
+        if($(this).parent().hasClass('SearchMapLv1')){ 
+          $(this).siblings().children('ul').addClass('hidden');
           $('#searchMap').css("transform","translateX(-155%)");
         }
-        if($(this).parent().hasClass('SearchMapLv2')){          
+        if($(this).parent().hasClass('SearchMapLv2')){
+          $(this).siblings().children('ul').addClass('hidden');          
           $('#searchMap').css("transform","translateX(-262%)");
+        }
+        //handle back button
+        let ButtonValue = $('#category-title');
+
+        // var ValueFromId='';
+        // $.each(data,function(index,item){
+        //   if (item.id === CategoryIdStorage[CategoryIdStorage.length-1]){
+        //     ValueFromId = item;
+        //   } 
+        // });
+        // console.log(ValueFromId);
+        // console.log(CategoryIdStorage);
+        // console.log(data);
+        if(ButtonValue==="Select a category"){
+          ButtonValue.text(ValueFromId.label);
+        }
+        
+        if(ButtonValue!=="Select a category"){
+          $('.back-icon').removeClass('hidden');
         }
       }
     });

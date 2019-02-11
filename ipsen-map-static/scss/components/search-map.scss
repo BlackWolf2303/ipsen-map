@@ -19,7 +19,6 @@
     transform: translateX(-50%);
     overflow-x: hidden;
   }
-
 }
 #searchMap {
   position: absolute;
@@ -36,7 +35,7 @@
     height: 20px;
   }
   .active {
-    background-color: lightgray;
+    background-color: #C1A87d;
   }
   .fjs-container:focus {
     outline: none;
@@ -69,7 +68,7 @@
     text-align: left;
     text-decoration: none;
     &:hover {
-      background-color: lightgrey;
+      background-color: #C1A87d;
       cursor: pointer;
     }
   }
@@ -98,13 +97,13 @@
   }
 
   .fjs-active a {
-    background-color: lightgray;
+    background-color: lightgoldenrodyellow;
     color: black;
   }
 
   .fjs-col:nth-last-child(2) .fjs-active a,
   .fjs-col:last-child .fjs-active a {
-    background-color: lightgrey;
+    background-color: lightgoldenrodyellow;
     color: black;
   }
 
@@ -146,8 +145,6 @@
     color: black;
   }
 
-
-
   .leaf-row .fa {
     color: #a7a7a7;
     font-size: 4em;
@@ -171,23 +168,45 @@
     margin-top: 1.5em;
   }
   .SearchMapLv1 {
-    background-color: rgb(184, 71, 71);
+    background-color: #00B4EB;
   }
   .SearchMapLv2 {
     position: absolute;
     top: 0;
-    left: 260px;
-    background-color: rgb(81, 175, 123)
-    
+    left:0;
+    background-color: #5AB190;
+    animation: slide 0.3s forwards;
+    -webkit-animation: slide 0.3s forwards;
   }
-  .SearchMapLv2 >li > .fjs-list {
+  .SearchMapLv3 {
     position: absolute;
     top: 0;
-    left: 260px;
-    background-color: rgb(103, 174, 194); 
+    left: 0;
+    background-color: #C9E3DB;
+    animation: slide 0.3s forwards;
+    -webkit-animation: slide 0.3s forwards;
   }
 
-  .SearchMapLv1 {
 
+  @-webkit-keyframes slide {
+    0%   { 
+      opacity: 0; 
+      left: 230px;
+    }
+    100% {
+      opacity: 1;
+      left: 260px;
+    }
+  }
+
+  @keyframes slide {
+    0%   { 
+      opacity: 0; 
+      left: 230px;
+    }
+    100% {
+      opacity: 1;
+      left: 260px;
+    }
   }
 }
