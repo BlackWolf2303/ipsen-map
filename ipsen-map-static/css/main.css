@@ -7902,7 +7902,7 @@ header {
     display: inline-block;
     height: 20px; }
   #searchMap .active {
-    background-color: #C1A87d; }
+    color: #d6517d; }
   #searchMap .fjs-container:focus {
     outline: none; }
   #searchMap .fjs-col {
@@ -7929,7 +7929,7 @@ header {
     text-align: left;
     text-decoration: none; }
     #searchMap .fjs-item a:hover {
-      background-color: #C1A87d;
+      color: #d6517d;
       cursor: pointer; }
   #searchMap .fjs-item-append {
     display: inline-block;
@@ -8051,6 +8051,9 @@ header {
 .modal .modal-dialog .modal-body .selected-platform label {
   margin-right: 10px; }
 .modal .modal-dialog .suggestion-submit-button {
+  min-width: 322px;
+  float: left; }
+.modal .modal-dialog .document-pin-button {
   min-width: 322px;
   float: left; }
 @media (min-width: 576px) {

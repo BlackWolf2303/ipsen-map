@@ -30,10 +30,10 @@ jQuery(function($) {
   }
   //innit Search Map
   function initSearchMapUI(data) {
+    
     let CategoryIdStorage = [];
     let ButtonValue = $("#category-title");
     let dislayScreen = $(window).width();
-
 
     $("#searchMap").append(initSearchMap(data));
     //add rootLayer id for categories
@@ -44,13 +44,15 @@ jQuery(function($) {
           .addClass("hidden");
       }
       $(this).addClass("SearchMapLv1"); //.attr("id","rootLayer"+(index+1))
-
       $(".SearchMapLv1>li>ul").each(function() {
         $(this).addClass("SearchMapLv2"); //.attr("id","rootLayer"+(index+1)+"-"+(i+1))
         $(".SearchMapLv2>li>ul").each(function() {
           $(this).addClass("SearchMapLv3");
         });
       });
+              // //add documentModal into category lv3
+              // $(".SearchMapLv3 > .fjs-item").attr({"data-toggle":"modal","data-target":"#documentModal"});
+
     });
 
     $(".fjs-item").on("click", function(e) {
@@ -96,6 +98,7 @@ jQuery(function($) {
           });
       }
 
+      
       //====MOBILE=====
       if (dislayScreen < 992) {
         //transform each category table
@@ -126,16 +129,24 @@ jQuery(function($) {
     if (dislayScreen < 992) { 
       
         $("#wrap-category-title").on("click", function(e) {
-          if(ButtonValue.text()!="Select a category"){
+          if(CategoryIdStorage.length>=1){
             let previousCategoryName = getBackButtonNameFromId(data);
             CategoryIdStorage.pop();
             ButtonValue.text(previousCategoryName);
+            $('.SearchMapLv2>.fjs-item').removeClass('active');
             $("#searchMap").css("transform", "translateX(-155%)");
-            
           }
+          if(CategoryIdStorage.length==0){
+            ButtonValue.text("Select a category");
+            $('.SearchMapLv1>.fjs-item').removeClass('active');
+            $(".back-icon").addClass("hidden");
+            $("#searchMap").css("transform", "translateX(-50%)");
+            console.log(CategoryIdStorage);
+          }
+          
         });
+        
     }
-
 
 
     //======METHOD=========
