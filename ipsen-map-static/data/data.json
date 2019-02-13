@@ -2,22 +2,22 @@
   {
     "id": "thearapeutic-area",
     "label": "Thearapeutic Area",
-    "desc" :" some test", 
+    "desc" :" Thearapeutic Area - some test ", 
     "children": [
       {
         "id": "rare-disease",
         "label": "Rare Disease",
-        "desc" :" some test", 
+        "desc" :" Rare Disease - some test", 
         "children": [
           {
             "id": "publication",
             "label": "Publication",
-            "desc" :" some test" 
+            "desc" :" some test of publication" 
           },
           {
             "id": "key-guidelines-others",
             "label": "Key Guidelines & Others",
-            "desc" :" some test" 
+            "desc" :" some test of Key Guidelines & Others" 
           },
           {
             "id": "training",

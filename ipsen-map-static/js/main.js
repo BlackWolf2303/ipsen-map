@@ -50,10 +50,11 @@ jQuery(function($) {
           $(this).addClass("SearchMapLv3");
         });
       });
-              // //add documentModal into category lv3
-              // $(".SearchMapLv3 > .fjs-item").attr({"data-toggle":"modal","data-target":"#documentModal"});
 
+    //add documentModal into category lv3
+    $(".SearchMapLv3 > .fjs-item").attr({"data-toggle":"modal","data-target":"#documentModal"});         
     });
+
 
     $(".fjs-item").on("click", function(e) {
       e.stopPropagation();
@@ -77,8 +78,6 @@ jQuery(function($) {
       //reset Id storage and add new ID
       CategoryIdStorage = [];
       CategoryIdStorage = categoryId;
-
-      console.log(CategoryIdStorage);
 
       if (dislayScreen >= 992) {
         $(this)
@@ -113,9 +112,7 @@ jQuery(function($) {
           $("#searchMap").css("transform", "translateX(-262%)");
         }
         //change text of back button when click on Map
-
         let ValueFromId = getValueFromId(data);
-
         if (ValueFromId != "") {
           ButtonValue.text(ValueFromId);
         }
@@ -126,6 +123,7 @@ jQuery(function($) {
       }
     });
 
+    //mobile display (<992px)
     if (dislayScreen < 992) { 
       
         $("#wrap-category-title").on("click", function(e) {
@@ -143,10 +141,46 @@ jQuery(function($) {
             $("#searchMap").css("transform", "translateX(-50%)");
             console.log(CategoryIdStorage);
           }
-          
         });
-        
     }
+
+    //display pop-up data when clicked on button lv3
+    $(".SearchMapLv3 .fjs-item").on("click", function(){
+      $("#documentModalTitle").text($(this).text());
+      let documentContent = getDataFromId(data);
+      $(".display-content > li").text(documentContent);
+      $("#documentModal").modal("show");
+    });
+
+    // pin-list function
+    let PinListStorage = [];
+    $(".document-pin-button").on("click", function(){
+      PinListStorage.push(CategoryIdStorage);
+      $("#pinListModal ul").empty();
+      $.each(PinListStorage,function(index,documentLink){
+        var convertedPinLink = $.map(documentLink,function(item){
+          return item;
+        });
+        console.log(convertedPinLink.join(" > "));
+        $("#pinListModal ul").append("<li>"+convertedPinLink.join(" > ")+"</li>");
+      });
+    });
+
+    // History function
+    let HistoryListStorage = [];
+    
+    $(".fjs-item").on("click", function(e) {
+      e.stopPropagation();
+      HistoryListStorage.push(CategoryIdStorage);
+      $("#searchHistoryModal ul").empty();
+      $.each(HistoryListStorage, function(index,historyLink){
+        var convertedHistoryLink = $.map(historyLink,function(item){
+          return item;
+        });
+        $("#searchHistoryModal ul").append("<li>"+convertedHistoryLink.join(" > ")+"</li>");
+      });
+
+    });
 
 
     //======METHOD=========
@@ -156,12 +190,13 @@ jQuery(function($) {
         let lastItemCategoryId = CategoryIdStorage[CategoryIdStorage.length - 1];
         if (item.id === lastItemCategoryId) {
           ValueFromId = item.label;
-        }
-        $.each(item.children, function(indexChild, itemChild) {
-          if (itemChild.id === lastItemCategoryId) {
-            ValueFromId = itemChild.label;
-          }
-        });
+        } else {
+          $.each(item.children, function(indexChild, itemChild) {
+            if (itemChild.id === lastItemCategoryId) {
+              ValueFromId = itemChild.label;
+            }
+          });
+        }      
       });
       return ValueFromId;
     }
@@ -171,12 +206,36 @@ jQuery(function($) {
         let lastItemCategoryId = CategoryIdStorage[0];
         if (item.id === lastItemCategoryId) {
           ValueFromId = item.label;
+        } else {
+          $.each(item.children, function(indexChild, itemChild) {
+            if (itemChild.id === lastItemCategoryId) {
+              ValueFromId = itemChild.label;
+            }
+          });
         }
-        $.each(item.children, function(indexChild, itemChild) {
-          if (itemChild.id === lastItemCategoryId) {
-            ValueFromId = itemChild.label;
-          }
-        });
+      });
+      return ValueFromId;
+    }
+    function getDataFromId(data) {
+      let ValueFromId = "";
+      $.each(data, function(indexLv1, itemLv1) {
+        let lastItemCategoryId = CategoryIdStorage[CategoryIdStorage.length-1];
+
+        if (itemLv1.id === lastItemCategoryId) {
+          ValueFromId = itemLv1.desc;
+        }else{
+          $.each(itemLv1.children, function(indexLv2, itemLv2) {
+            if (itemLv2.id === lastItemCategoryId) {
+              ValueFromId = itemLv2.desc;
+            } else {
+              $.each(itemLv2.children, function(indexLv3, itemLv3){
+                if (itemLv3.id === lastItemCategoryId) {
+                  ValueFromId = itemLv3.desc;
+                }
+              });
+            }
+          });
+        }
       });
       return ValueFromId;
     }
