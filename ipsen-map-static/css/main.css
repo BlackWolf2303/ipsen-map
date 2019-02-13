@@ -7821,7 +7821,7 @@ header {
       margin-bottom: 20px; }
 
 #layout .tree-content {
-  background-color: #efefef;
+  background-color: #1d98aa;
   text-align: center; }
   @media (max-width: 992px) {
     #layout .tree-content #wrap-category-title {
@@ -7874,7 +7874,7 @@ header {
   min-height: 500px;
   font-size: 0.9em;
   overflow: auto;
-  background-color: #efefef; }
+  background-color: transparent; }
   @media (max-width: 992px) {
     .fjs-container {
       display: flex; } }
@@ -7901,8 +7901,6 @@ header {
     position: absolute;
     display: inline-block;
     height: 20px; }
-  #searchMap .active {
-    color: #d6517d; }
   #searchMap .fjs-container:focus {
     outline: none; }
   #searchMap .fjs-col {
@@ -7920,17 +7918,21 @@ header {
         margin-top: 0px;
         margin-left: auto;
         margin-right: auto; } }
-  #searchMap .fjs-item a {
-    border-bottom: 1px solid white;
-    align-items: flex-end;
-    color: black;
-    display: flex;
-    padding: 10px;
-    text-align: left;
-    text-decoration: none; }
-    #searchMap .fjs-item a:hover {
-      color: #d6517d;
-      cursor: pointer; }
+  #searchMap .fjs-item {
+    border-bottom: 1px solid grey; }
+    #searchMap .fjs-item a {
+      border-bottom: 1px solid white;
+      align-items: flex-end;
+      color: black;
+      display: flex;
+      padding: 10px;
+      text-align: left;
+      text-decoration: none; }
+      #searchMap .fjs-item a:hover {
+        color: #d6517d;
+        cursor: pointer; }
+  #searchMap .active > a {
+    color: #d6517d; }
   #searchMap .fjs-item-append {
     display: inline-block;
     float: right; }
@@ -7990,20 +7992,16 @@ header {
     font-weight: normal; }
   #searchMap .leaf-col .meta:first-of-type {
     margin-top: 1.5em; }
-  #searchMap .SearchMapLv1 {
-    background-color: #00B4EB; }
   #searchMap .SearchMapLv2 {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #5AB190;
     animation: slide 0.3s forwards;
     -webkit-animation: slide 0.3s forwards; }
   #searchMap .SearchMapLv3 {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #C9E3DB;
     animation: slide 0.3s forwards;
     -webkit-animation: slide 0.3s forwards; }
 @-webkit-keyframes slide {

@@ -64,10 +64,9 @@ jQuery(function($) {
       $(this)
         .parents("li")
         .addClass("active");
-
+        
       //====HANDLE CATEGORY STORAGE=====
       // let categoryId = $(this).attr('id');
-
       let categoryId = $("#searchMap")
         .find(".active")
         .map(function() {
