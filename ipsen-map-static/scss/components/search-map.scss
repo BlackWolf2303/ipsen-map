@@ -29,12 +29,13 @@
     transition: transform 0.3s;
     margin-left: 0;
   }
+
   #welconme-message {
     position: absolute;
     display: inline-block;
     height: 20px;
   }
- 
+
   .fjs-container:focus {
     outline: none;
   }
@@ -68,19 +69,18 @@
       text-align: left;
       text-decoration: none;
       &:hover {
-        color: rgb(214, 81, 125);
+        background-color: rgb(38, 180, 197);
         cursor: pointer;
       }
     }
   }
-  
 
   .active {
     >a {
       color: rgb(214, 81, 125);
     }
+  }
 
-}
   .fjs-item-append {
     display: inline-block;
     float: right;

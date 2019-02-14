@@ -86,14 +86,17 @@ jQuery(function($) {
             // $(this).toggleClass('hidden',$(this).hasClass('active'));
             if ($(this).hasClass("active")) {
               $(this)
+              .children("ul")
+              .toggleClass("hidden");
+              console.log($(this).children("ul:not(:first-child)"));
+              
+              $(this)
                 .siblings()
                 .children("ul")
                 .addClass("hidden");
-              $(this)
-                .children("ul")
-                .toggleClass("hidden");
             }
           });
+          
       }
 
       

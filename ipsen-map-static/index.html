@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
+      href="fontawesome/css/all.min.css"
     />
     <title>Ipsen map</title>
   </head>
@@ -19,31 +17,31 @@
       <div class="container">
         <div class="row">
           <div class="logo col">
-            <a href="./index.html">
-              <img src="https://via.placeholder.com/100" alt="search map" />
-            </a>
-          </div>
-          <div class="pin-history-button col">
-            <div class="button-wrapper row">
-              <div class="pin-list col-lg-6">
-                <button
-                  class="btn btn-format col-lg-12"
-                  data-toggle="modal"
-                  data-target="#pinListModal"
-                >
-                  Pin list
-                </button>
-              </div>
-              <div class="col-lg-6">
-                <button
-                  class="btn btn-format col-lg-12"
-                  data-toggle="modal"
-                  data-target="#searchHistoryModal"
-                >
-                  Search history
-                </button>
-              </div>
-            </div>
+              <div class="pin-history-button">
+                  <div class="button-wrapper row">
+                      <div>
+                        <button
+                          class="btn btn-format "
+                          data-toggle="modal"
+                          data-target="#searchHistoryModal"
+                        >
+                        <i class="far fa-file-alt"></i>
+                        </button>
+                      </div>
+                    <div class="pin-list">
+                      <button
+                        class="btn btn-format"
+                        data-toggle="modal"
+                        data-target="#pinListModal"
+                      >
+                      <i class="fas fa-thumbtack"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              <a href="./index.html">
+                <img src="https://via.placeholder.com/100" alt="search map" />
+              </a>
           </div>
         </div>
       </div>

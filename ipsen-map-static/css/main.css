@@ -7801,16 +7801,15 @@ header {
     header .button-wrapper .btn {
       display: inline-block;
       background-color: white;
-      color: black;
+      color: green;
       font-weight: bold;
-      border-radius: 0;
       border: 1px solid black;
-      padding-left: 35px;
-      padding-right: 35px;
       padding-top: 0;
       padding-bottom: 0;
       font-size: 13px;
-      min-width: 170px; }
+      min-width: 30px;
+      min-height: 30px;
+      border-radius: 50%; }
       @media (max-width: 992px) {
         header .button-wrapper .btn {
           max-width: 170px;
@@ -7821,7 +7820,7 @@ header {
       margin-bottom: 20px; }
 
 #layout .tree-content {
-  background-color: #1d98aa;
+  background-image: linear-gradient(to right, #1d98aa, #003a56);
   text-align: center; }
   @media (max-width: 992px) {
     #layout .tree-content #wrap-category-title {
@@ -7834,7 +7833,7 @@ header {
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: black; }
+    color: white; }
     @media (max-width: 992px) {
       #layout .tree-content #category-title {
         margin-top: 0;
@@ -7855,7 +7854,7 @@ header {
     font-size: 10px; }
     #layout .tree-content .missing-content a {
       text-decoration: underline;
-      color: black;
+      color: white;
       font-weight: bold; }
   #layout .tree-content .hidden {
     display: none; }
@@ -7863,6 +7862,8 @@ header {
     margin-left: 475px; }
   #layout .tree-content .missing-content-position-2 {
     margin-left: 605px; }
+  #layout .tree-content .wrap-message {
+    color: white; }
 #layout #suggestion-button {
   cursor: pointer; }
 
@@ -7929,7 +7930,7 @@ header {
       text-align: left;
       text-decoration: none; }
       #searchMap .fjs-item a:hover {
-        color: #d6517d;
+        background-color: #26b4c5;
         cursor: pointer; }
   #searchMap .active > a {
     color: #d6517d; }
@@ -8056,6 +8057,14 @@ header {
 @media (min-width: 576px) {
   .modal .modal-dialog {
     max-width: 350px; } }
+
+#searchHistoryModal .modal-body {
+  height: 200px;
+  overflow-y: scroll; }
+
+#pinListModal .modal-body {
+  height: 200px;
+  overflow-y: scroll; }
 
 /* Pages
 ========================================================================== */

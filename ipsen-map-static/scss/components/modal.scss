@@ -33,5 +33,16 @@
       max-width: 350px;
     }
   }
-
+}
+#searchHistoryModal {
+  .modal-body {
+    height: 200px;
+    overflow-y: scroll;
+  }
+}
+#pinListModal {
+  .modal-body {
+    height: 200px;
+    overflow-y: scroll;
+  }
 }
