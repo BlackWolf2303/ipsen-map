@@ -1,0 +1,40 @@
+// Search Map
+.fjs-container {
+  display: flex;
+  position: relative;
+  min-height: 500px;
+  font-size: 0.9em;
+  overflow: auto;
+  background-color:transparent;
+
+  #searchMap {
+   
+  }
+
+  @media (max-width: 992px) {
+    display: flex;
+  }
+}
+#catelogyMask {
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 992px) {
+    position: absolute;
+    min-width: 250px;
+    min-height: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-x: hidden;
+  }
+}
+
+  #welconme-message {
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+  }
+
+  .active {
+      color: rgb(214, 81, 125);
+  }
+

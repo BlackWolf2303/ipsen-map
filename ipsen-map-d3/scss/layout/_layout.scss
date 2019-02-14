@@ -1,0 +1,72 @@
+// Layout
+#layout {
+  .tree-content {
+    background-image: linear-gradient(to right, rgb(29,152,170) ,rgb(0,58,86));
+    text-align: center;
+    #wrap-category-title {
+      @media (max-width: 992px){
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto; 
+        text-align: left;
+      }
+    }
+
+    #category-title {
+
+      display: inline-block;
+      font-weight: bold;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: white;
+      @media (max-width: 992px){
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 38px;
+      }
+    }
+
+    .back-icon {
+      @media (max-width: 992px){
+      display: inline-block;
+      }
+      &::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f053";
+      }
+    }
+
+    .missing-content {
+      text-align: left;
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 10px;
+      
+      a {
+        text-decoration: underline;
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+    .missing-content-position-1 {
+      margin-left: 475px;
+    }
+    .missing-content-position-2 {
+      margin-left: 605px;
+    }
+    
+    .wrap-message {
+      color:white;
+    }
+  }
+  #suggestion-button {
+    cursor: pointer;
+  }
+
+}

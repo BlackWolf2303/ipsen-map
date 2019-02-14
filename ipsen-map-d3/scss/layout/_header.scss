@@ -1,0 +1,38 @@
+header {
+  margin-top: 20px;
+  .container {
+    min-height: 120px;
+
+  }
+
+  .button-wrapper {
+    float: right;
+    .btn {
+      display: inline-block;
+      background-color: white;
+      color: green;
+      font-weight: bold;
+      border: 1px solid black;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-size: 13px;
+      min-width: 30px;
+      min-height: 30px;
+      border-radius: 50%;
+
+      @media (max-width: 992px){
+        max-width: 170px;
+        float: right;
+      }
+      &:hover {
+        background-color: lightgrey;
+      }
+    }
+
+    .pin-list {
+        margin-bottom: 20px;
+    }
+
+
+  }
+}

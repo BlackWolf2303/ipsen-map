@@ -1,0 +1,93 @@
+[
+  {
+    "id": "thearapeutic-area",
+    "label": "Thearapeutic Area",
+    "desc" :" Thearapeutic Area - some test ", 
+    "children": [
+      {
+        "id": "rare-disease",
+        "label": "Rare Disease",
+        "desc" :" Rare Disease - some test", 
+        "children": [
+          {
+            "id": "publication",
+            "label": "Publication",
+            "desc" :" some test of publication" 
+          },
+          {
+            "id": "key-guidelines-others",
+            "label": "Key Guidelines & Others",
+            "desc" :" some test of Key Guidelines & Others" 
+          },
+          {
+            "id": "training",
+            "label": "Training",
+            "desc" :" some test" 
+          },
+          {
+            "id": "clinical-trials",
+            "label": "Clinical Trials",
+            "desc" :" some test" 
+          },
+          {
+            "id": "congress-hightlights",
+            "label": "Congress Hightlights",
+            "desc" :" some test" 
+          },
+          {
+            "id": "core-content", 
+            "label": "Core content",
+            "desc" :" some test" 
+          },
+          {
+            "id": "contact",
+            "label": "Contact",
+            "desc" :" some test" 
+          },
+          {
+            "id": "rare-diseases-share-point",
+            "label": "Rare Diseases SharePoint",
+            "desc" :" some test"
+          }
+        ]
+      },
+      {
+        "id": "item-1-b",
+        "label": "Item 1B",
+        "desc" :" some test",
+        "children": [
+          {
+            "id": "item-1-b1",
+            "label": "Item 1B1",
+            "desc" :" some test"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gmas",
+    "label": "GMAS",
+    "desc" :" some test",
+    "children": [
+      {
+        "id": "example-2.1",
+        "label": "example 2.1",
+        "desc" :" some test",
+        "children": [
+          {
+            "id": "example-2.1.1",
+            "label": "example 2.1.1",
+            "desc" :" some test"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "useful-share-point-links",
+    "label": "Useful SharePoint Links",
+    "desc" :" some test",
+    "children": []
+  }
+]
