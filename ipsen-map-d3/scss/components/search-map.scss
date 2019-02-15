@@ -8,7 +8,19 @@
   background-color:transparent;
 
   #searchMap {
-   
+    circle.node {
+      cursor: pointer;
+      stroke: #34495e;
+      stroke-width: 0px;
+      box-sizing: border-box;
+      stroke-location: inside;
+    }
+    
+    line.link {
+      fill: none;
+      stroke: #34495e;
+      stroke-width: 1.5px;
+    }
   }
 
   @media (max-width: 992px) {

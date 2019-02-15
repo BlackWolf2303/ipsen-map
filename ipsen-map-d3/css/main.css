@@ -7933,7 +7933,7 @@ header {
       margin-bottom: 20px; }
 
 #layout .tree-content {
-  background-image: linear-gradient(to right, #1d98aa, #003a56);
+  background: #f5f2ec;
   text-align: center; }
   @media (max-width: 992px) {
     #layout .tree-content #wrap-category-title {
@@ -7989,6 +7989,16 @@ header {
   font-size: 0.9em;
   overflow: auto;
   background-color: transparent; }
+  .fjs-container #searchMap circle.node {
+    cursor: pointer;
+    stroke: #34495e;
+    stroke-width: 0px;
+    box-sizing: border-box;
+    stroke-location: inside; }
+  .fjs-container #searchMap line.link {
+    fill: none;
+    stroke: #34495e;
+    stroke-width: 1.5px; }
   @media (max-width: 992px) {
     .fjs-container {
       display: flex; } }

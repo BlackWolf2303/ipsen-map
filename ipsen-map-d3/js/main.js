@@ -16,14 +16,304 @@
 // //   return item+"px";
 // // })
 
-
 //<=======JQUERY START =========>
-jQuery(function($) {
-  
-});
-//D3
-d3.select("#searchMap").append("svg")
-	.attr("width", 500)
-  .attr("height", 500)
-  .style("background-color","yellow");
+jQuery(function($) {});
+//DaTa
+var words = [{
+    "id": "root",
+    "label": "ROOT",
+    "desc" :" ROOT - some test ", 
+    "children": [
+      {
+        "id": "thearapeutic-area",
+        "label": "Thearapeutic Area",
+        "color":"lv1",
+        "desc" :" Thearapeutic Area - some test ", 
+        "children": [
+          {
+            "id": "rare-disease",
+            "label": "Rare Disease",
+            "desc" :" Rare Disease - some test", 
+            "children": [
+              {
+                "id": "publication",
+                "color":"lv3",
+                "label": "Publication",
+                "desc" :" some test of publication" 
+              },
+              {
+                "id": "key-guidelines-others",
+                "color":"lv3",
+                "label": "Key Guidelines & Others",
+                "desc" :" some test of Key Guidelines & Others" 
+              },
+              {
+                "id": "training",
+                "color":"lv3",
+                "label": "Training",
+                "desc" :" some test" 
+              },
+              {
+                "id": "clinical-trials",
+                "color":"lv3",
+                "label": "Clinical Trials",
+                "desc" :" some test" 
+              },
+              {
+                "id": "congress-hightlights",
+                "color":"lv3",
+                "label": "Congress Hightlights",
+                "desc" :" some test" 
+              },
+              {
+                "id": "core-content",
+                "color":"lv3", 
+                "label": "Core content",
+                "desc" :" some test" 
+              },
+              {
+                "id": "contact",
+                "color":"lv3",
+                "label": "Contact",
+                "desc" :" some test" 
+              },
+              {
+                "id": "rare-diseases-share-point",
+                "color":"lv3",
+                "label": "Rare Diseases SharePoint",
+                "desc" :" some test"
+              }
+            ]
+          },
+          {
+            "id": "item-1-b",
+            "label": "Item 1B",
+            "desc" :" some test",
+            "children": [
+              {
+                "id": "item-1-b1",
+                "label": "Item 1B1",
+                "desc" :" some test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gmas",
+        "label": "GMAS",
+        "color":"lv1",
+        "desc" :" some test",
+        "children": [
+          {
+            "id": "example-2.1",
+            "label": "example 2.1",
+            "desc" :" some test",
+            "children": [
+              {
+                "id": "example-2.1.1",
+                "label": "example 2.1.1",
+                "desc" :" some test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "useful-share-point-links",
+        "label": "Useful SharePoint Links",
+        "color":"lv1",
+        "desc" :" some test",
+        "children": []
+      }
+    ]
 
+}]
+;
+console.log(words);
+
+//D3
+var w = 1110,
+  h = 1000,
+  radius = 50,
+  node,
+  link,
+  root;
+
+var force = d3.layout
+  .force()
+  .on("tick", tick)
+  .charge(function(d) {
+    return -2000;
+  })
+  .linkDistance(function(d) {
+    return d.target._children ? 200 : 150;
+  })
+  .size([w, h -160]);
+
+
+var svg = d3
+  .select("#searchMap")
+  .append("svg")
+  .attr("width", w)
+  .attr("height", h);
+
+root = words[0]; //set root node
+root.fixed = true;
+root.x = w / 2;
+root.y = h / 2; //node position
+update();
+
+function update() {
+  var nodes = flatten(root),
+    links = d3.layout.tree().links(nodes);
+
+  // Restart the force layout.
+  force
+    .nodes(nodes)
+    .links(links)
+    .start();
+
+  // Update the links…
+  link = svg.selectAll(".link").data(links);
+
+  // Enter any new links.
+  link
+    .enter()
+    .insert("svg:line", ".node")
+    .attr("class", "link")
+    .attr("x1", function(d) {
+      return d.source.x;
+    })
+    .attr("y1", function(d) {
+      return d.source.y;
+    })
+    .attr("x2", function(d) {
+      return d.target.x;
+    })
+    .attr("y2", function(d) {
+      return d.target.y;
+    });
+
+  // Exit any old links.
+  link.exit().remove();
+
+  // Update the nodes…
+  node = svg.selectAll("circle.node").data(nodes, function(d){
+    return d.label;
+  })
+  .style("fill", color);
+
+  node.transition().attr("r", radius);
+
+  // Enter any new nodes.
+  node
+    .enter().append("svg:circle").attr("class", "node")
+    .attr("cx", function(d) {
+      return d.x;
+    })
+    .attr("cy", function(d) {
+      return d.y;
+    })
+    .attr("r", radius).style("fill", color).on("click", click).call(force.drag);
+
+  // Exit any old nodes.
+  node.exit().remove();
+
+  title = svg.selectAll("text.title").data(nodes, function(d){
+    return d.label;
+  });
+
+  // Enter any new titles.
+  title.enter().append("text").attr("class", "title").text(function(d) {
+      return d.label;
+    });
+  // Exit any old titles.
+  title.exit().remove();
+}
+
+function tick() {
+  link
+    .attr("x1", function(d) {
+      return d.source.x;
+    })
+    .attr("y1", function(d) {
+      return d.source.y;
+    })
+    .attr("x2", function(d) {
+      return d.target.x;
+    })
+    .attr("y2", function(d) {
+      return d.target.y;
+    });
+
+  node
+    .attr("cx", function(d) {
+      return d.x;
+    })
+    .attr("cy", function(d) {
+      return d.y;
+    });
+
+  title.attr("transform", function(d) {
+    return "translate(" + d.x + "," + d.y + ")";
+  });
+}
+
+// Color leaf nodes orange, and packages white or blue.
+function color(d) {
+  // if (d._children) {
+  //   return d.color;
+  // } else {}
+    switch (d.color) {
+      case "lv1": //adverb
+        return "#3498db";
+        break;
+      case "n": //noun
+        return "#3498db";
+        break;
+      case "v": //verb
+        return "#2ecc71";
+        break;
+      case "lv3": //adjective
+        return "#e78229";
+        break;
+      default:
+        return "#2ecc71";
+  }
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d3.event.defaultPrevented) return; // ignore drag
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  update();
+
+
+}
+
+
+// Returns a list of all nodes under the root.
+function flatten(root) {
+  var nodes = [],
+    i = 0;
+
+  function recurse(node) {
+    if (node.children)
+      node.size = node.children.reduce(function(p, v) {
+        return p + recurse(v);
+      }, 0);
+    if (!node.id) node.id = ++i;
+    nodes.push(node);
+    return node.size;
+  }
+
+  root.size = recurse(root);
+  return nodes;
+}
