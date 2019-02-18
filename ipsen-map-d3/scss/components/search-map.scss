@@ -19,14 +19,18 @@
     line.link {
       fill: none;
       stroke: #34495e;
-      stroke-width: 1.5px;
+      stroke-width: 1px;
+      
+    }
+    .title {
+      color: white;
     }
   }
-
   @media (max-width: 992px) {
     display: flex;
   }
 }
+
 #catelogyMask {
   margin-left: auto;
   margin-right: auto;

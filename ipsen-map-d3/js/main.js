@@ -18,139 +18,28 @@
 
 //<=======JQUERY START =========>
 jQuery(function($) {});
-//DaTa
-var words = [{
-    "id": "root",
-    "label": "ROOT",
-    "desc" :" ROOT - some test ", 
-    "children": [
-      {
-        "id": "thearapeutic-area",
-        "label": "Thearapeutic Area",
-        "color":"lv1",
-        "desc" :" Thearapeutic Area - some test ", 
-        "children": [
-          {
-            "id": "rare-disease",
-            "label": "Rare Disease",
-            "desc" :" Rare Disease - some test", 
-            "children": [
-              {
-                "id": "publication",
-                "color":"lv3",
-                "label": "Publication",
-                "desc" :" some test of publication" 
-              },
-              {
-                "id": "key-guidelines-others",
-                "color":"lv3",
-                "label": "Key Guidelines & Others",
-                "desc" :" some test of Key Guidelines & Others" 
-              },
-              {
-                "id": "training",
-                "color":"lv3",
-                "label": "Training",
-                "desc" :" some test" 
-              },
-              {
-                "id": "clinical-trials",
-                "color":"lv3",
-                "label": "Clinical Trials",
-                "desc" :" some test" 
-              },
-              {
-                "id": "congress-hightlights",
-                "color":"lv3",
-                "label": "Congress Hightlights",
-                "desc" :" some test" 
-              },
-              {
-                "id": "core-content",
-                "color":"lv3", 
-                "label": "Core content",
-                "desc" :" some test" 
-              },
-              {
-                "id": "contact",
-                "color":"lv3",
-                "label": "Contact",
-                "desc" :" some test" 
-              },
-              {
-                "id": "rare-diseases-share-point",
-                "color":"lv3",
-                "label": "Rare Diseases SharePoint",
-                "desc" :" some test"
-              }
-            ]
-          },
-          {
-            "id": "item-1-b",
-            "label": "Item 1B",
-            "desc" :" some test",
-            "children": [
-              {
-                "id": "item-1-b1",
-                "label": "Item 1B1",
-                "desc" :" some test"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "gmas",
-        "label": "GMAS",
-        "color":"lv1",
-        "desc" :" some test",
-        "children": [
-          {
-            "id": "example-2.1",
-            "label": "example 2.1",
-            "desc" :" some test",
-            "children": [
-              {
-                "id": "example-2.1.1",
-                "label": "example 2.1.1",
-                "desc" :" some test"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "useful-share-point-links",
-        "label": "Useful SharePoint Links",
-        "color":"lv1",
-        "desc" :" some test",
-        "children": []
-      }
-    ]
 
-}]
-;
-console.log(words);
 
 //D3
+
+
 var w = 1110,
   h = 1000,
-  radius = 50,
   node,
   link,
   root;
 
+ 
+
 var force = d3.layout
   .force()
   .on("tick", tick)
-  .charge(function(d) {
-    return -2000;
-  })
+  .charge(-300)
+  .gravity(-0.003)
   .linkDistance(function(d) {
-    return d.target._children ? 200 : 150;
+    return d.target._children ? 200 : 200;
   })
   .size([w, h -160]);
-
 
 var svg = d3
   .select("#searchMap")
@@ -158,11 +47,25 @@ var svg = d3
   .attr("width", w)
   .attr("height", h);
 
-root = words[0]; //set root node
+//connect data json file
+d3.json("./data/data.json", function(error, data) {
+if (error) throw error;
+root = data[0]; //set root node
+setParents(root, null);
+collapseAll(root);
 root.fixed = true;
-root.x = w / 2;
-root.y = h / 2; //node position
+root.x = w / 2 + 180;
+root.y = h / 2 - 180; //node position
 update();
+console.log(root);
+});
+
+// root = data[0]; //set root node
+// console.log(root);
+// root.fixed = true;
+// root.x = w / 2;
+// root.y = h / 2; //node position
+// update();
 
 function update() {
   var nodes = flatten(root),
@@ -199,13 +102,15 @@ function update() {
   link.exit().remove();
 
   // Update the nodes…
+
   node = svg.selectAll("circle.node").data(nodes, function(d){
     return d.label;
   })
-  .style("fill", color);
+  
+  // .style("fill", color); //change node color after click
 
   node.transition().attr("r", radius);
-
+  
   // Enter any new nodes.
   node
     .enter().append("svg:circle").attr("class", "node")
@@ -215,17 +120,31 @@ function update() {
     .attr("cy", function(d) {
       return d.y;
     })
-    .attr("r", radius).style("fill", color).on("click", click).call(force.drag);
-
+    .attr("r", radius)
+    .style("stroke-width", function(d){
+      if(d.id=="root"){
+        return 2;
+      }
+    })
+    .style("fill", color).on("click", click).call(force.drag);
   // Exit any old nodes.
   node.exit().remove();
 
+  //Title
   title = svg.selectAll("text.title").data(nodes, function(d){
     return d.label;
   });
-
   // Enter any new titles.
-  title.enter().append("text").attr("class", "title").text(function(d) {
+  title.enter().append("text")
+  .attr("class", "title")
+  // .style("color",function(d){
+  //   if(d.id="root"){
+  //     return "black";
+  //   }else {
+  //     return "white";
+  //   }
+  // })
+  .text(function(d) {
       return d.label;
     });
   // Exit any old titles.
@@ -256,7 +175,7 @@ function tick() {
     });
 
   title.attr("transform", function(d) {
-    return "translate(" + d.x + "," + d.y + ")";
+    return "translate(" + (d.x-15) + "," + d.y + ")";
   });
 }
 
@@ -266,20 +185,30 @@ function color(d) {
   //   return d.color;
   // } else {}
     switch (d.color) {
-      case "lv1": //adverb
-        return "#3498db";
+      case "root": //adverb
+        return "white";
         break;
-      case "n": //noun
-        return "#3498db";
+      case "lv1": //lightBlue
+        return "#003b55";
         break;
-      case "v": //verb
-        return "#2ecc71";
+      case "lv2": //lightGreen
+        return "#26b5c4";
         break;
-      case "lv3": //adjective
-        return "#e78229";
+      case "lv3": //dardOrange
+        return "#a2c859";
         break;
       default:
-        return "#2ecc71";
+        return "red";
+  }
+}
+
+function radius(d) {
+  switch (d.radius){
+    case "root":
+      return 100;
+      break;
+    default:
+    return 50;
   }
 }
 
@@ -287,15 +216,19 @@ function color(d) {
 function click(d) {
   if (d3.event.defaultPrevented) return; // ignore drag
   if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
+    collapseAll(d);
+} else {
+    if (d._parent){
+        d._parent.children.forEach(function(e){
+            if (e != d){
+                collapseAll(e);
+            }
+        });
+    }
+  d.children = d._children;
+  d._children = null;
+}
   update();
-
-
 }
 
 
@@ -316,4 +249,26 @@ function flatten(root) {
 
   root.size = recurse(root);
   return nodes;
+}
+
+
+//
+function collapseAll(d){
+  if (d.children){
+      d.children.forEach(collapseAll);
+      d._children = d.children;
+      d.children = null;
+  }
+  else if (d._childred){
+      d._children.forEach(collapseAll);
+  }
+}
+
+function setParents(d, p){
+  d._parent = p;
+if (d.children) {
+    d.children.forEach(function(e){ setParents(e,d);});
+} else if (d._children) {
+    d._children.forEach(function(e){ setParents(e,d);});
+}
 }

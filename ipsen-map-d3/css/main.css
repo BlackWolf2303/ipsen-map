@@ -7998,7 +7998,9 @@ header {
   .fjs-container #searchMap line.link {
     fill: none;
     stroke: #34495e;
-    stroke-width: 1.5px; }
+    stroke-width: 1px; }
+  .fjs-container #searchMap .title {
+    color: white; }
   @media (max-width: 992px) {
     .fjs-container {
       display: flex; } }
