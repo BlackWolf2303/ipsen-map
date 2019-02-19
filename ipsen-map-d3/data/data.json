@@ -1,13 +1,13 @@
 [{
   "id": "root",
-  "label": "ROOT",
+  "label": "What resource \n topic are you \n looking for?",
   "radius":"root",
   "color":"root",
   "desc" :" ROOT - some test ", 
   "children": [
     {
       "id": "thearapeutic-area",
-      "label": "Thearapeutic Area",
+      "label": "Theara- peutic Area",
       "color":"lv1",
       "desc" :" Thearapeutic Area - some test ", 
       "children": [

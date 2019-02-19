@@ -34,12 +34,17 @@ var w = 1110,
 var force = d3.layout
   .force()
   .on("tick", tick)
-  .charge(-300)
-  .gravity(-0.003)
+  .charge((d) => -radius(d) * 20)
+  .friction(0.8)
+  .gravity(0.05)
+  .linkStrength(0.5)
   .linkDistance(function(d) {
-    return d.target._children ? 200 : 200;
+    return d.target._children ? 200 : 150;
   })
-  .size([w, h -160]);
+  .size([w, h -160])
+  
+  // .force("box_force", box_force);
+
 
 var svg = d3
   .select("#searchMap")
@@ -51,7 +56,6 @@ var svg = d3
 d3.json("./data/data.json", function(error, data) {
 if (error) throw error;
 root = data[0]; //set root node
-setParents(root, null);
 collapseAll(root);
 root.fixed = true;
 root.x = w / 2 + 180;
@@ -130,41 +134,49 @@ function update() {
   // Exit any old nodes.
   node.exit().remove();
 
+
   //Title
-  title = svg.selectAll("text.title").data(nodes, function(d){
-    return d.label;
-  });
+  title = svg.selectAll("text.title")
+  .data(nodes, d => d.label);
   // Enter any new titles.
-  title.enter().append("text")
+  title.enter()
+  
+  .append("text")
+  .attr("x", 0)
+  .attr("dy", ".35em")
+  .attr("text-anchor", "middle")
+  .attr("alignment-baseline","middle")
   .attr("class", "title")
-  // .style("color",function(d){
-  //   if(d.id="root"){
-  //     return "black";
-  //   }else {
-  //     return "white";
-  //   }
-  // })
-  .text(function(d) {
-      return d.label;
-    });
+  .style("fill","white")
+
+  title.selectAll("tspan.text")
+  .data(function(d){
+    if(d.id != "root"){
+      return d.label.split(" ");
+    }
+    return d.label.split("\n");
+  })
+  .enter()
+  .append("tspan")
+  .attr("class", "text")
+  .text(d => d)
+  .attr("x", 20)
+  .attr("dx", 10)
+  .attr("dy", 18);
+  
+  
+  svg.select("text.title").style("fill","black");//fill color at the first node
   // Exit any old titles.
   title.exit().remove();
 }
 
+
 function tick() {
   link
-    .attr("x1", function(d) {
-      return d.source.x;
-    })
-    .attr("y1", function(d) {
-      return d.source.y;
-    })
-    .attr("x2", function(d) {
-      return d.target.x;
-    })
-    .attr("y2", function(d) {
-      return d.target.y;
-    });
+    .attr("x1", function(d) { return d.source.x; })
+    .attr("y1", function(d) { return d.source.y; })
+    .attr("x2", function(d) { return d.target.x; })
+    .attr("y2", function(d) { return d.target.y; });
 
   node
     .attr("cx", function(d) {
@@ -172,10 +184,11 @@ function tick() {
     })
     .attr("cy", function(d) {
       return d.y;
-    });
-
+    })
+    // .attr("cx", function(d) { return d.x = Math.max(radius, Math.min(w - radius, d.x)); })
+    // .attr("cy", function(d) { return d.y = Math.max(radius, Math.min(h - radius, d.y)); });
   title.attr("transform", function(d) {
-    return "translate(" + (d.x-15) + "," + d.y + ")";
+    return "translate(" + (d.x-30) + "," + (d.y-30) + ")";
   });
 }
 
@@ -205,7 +218,7 @@ function color(d) {
 function radius(d) {
   switch (d.radius){
     case "root":
-      return 100;
+      return 70;
       break;
     default:
     return 50;
@@ -251,19 +264,25 @@ function flatten(root) {
   return nodes;
 }
 
-
-//
-function collapseAll(d){
-  if (d.children){
-      d.children.forEach(collapseAll);
-      d._children = d.children;
-      d.children = null;
-  }
-  else if (d._childred){
-      d._children.forEach(collapseAll);
+function box_force() { 
+  for (var i = 0, n = nodes.length; i < n; ++i) {
+    curr_node = nodes[i];
+    curr_node.x = Math.max(radius, Math.min(w - radius, curr_node.x));
+    curr_node.y = Math.max(radius, Math.min(h - radius, curr_node.y));
   }
 }
+console.log(node);
 
+function collapseAll(d){
+    if (d.children ){
+        d.children.forEach(collapseAll);
+        d._children = d.children;
+        d.children = null;
+    }
+    else if (d._children){
+        d._children.forEach(collapseAll);
+    }
+  }
 function setParents(d, p){
   d._parent = p;
 if (d.children) {
