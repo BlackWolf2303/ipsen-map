@@ -24,7 +24,7 @@ jQuery(function($) {});
 
 
 var w = 1110,
-  h = 1000,
+  h = 700,
   node,
   link,
   root;
@@ -34,15 +34,14 @@ var w = 1110,
 var force = d3.layout
   .force()
   .on("tick", tick)
-  .charge((d) => -radius(d) * 20)
   .friction(0.8)
-  .gravity(0.05)
-  .linkStrength(0.5)
+  .gravity(0.001)
+  .linkStrength(1)
+  .charge((d) => -radius(d) * 19)
   .linkDistance(function(d) {
-    return d.target._children ? 200 : 150;
+    return d.target._children ? 180 : 130;
   })
   .size([w, h -160])
-  
   // .force("box_force", box_force);
 
 
@@ -56,10 +55,16 @@ var svg = d3
 d3.json("./data/data.json", function(error, data) {
 if (error) throw error;
 root = data[0]; //set root node
+// setParents(root, null); //show only 1 branch when clicked node
+
+//collapAll root except parents
 collapseAll(root);
+root.children = root._children;
+root._children = null;
+
 root.fixed = true;
-root.x = w / 2 + 180;
-root.y = h / 2 - 180; //node position
+root.x = w / 2 ;
+root.y = h / 2; //node position
 update();
 console.log(root);
 });
@@ -80,18 +85,21 @@ function update() {
     .nodes(nodes)
     .links(links)
     .start();
+  
+  
+  
 
   // Update the links…
   link = svg.selectAll(".link").data(links);
-
+  
   // Enter any new links.
   link
     .enter()
     .insert("svg:line", ".node")
-    .attr("class", "link")
     .attr("x1", function(d) {
       return d.source.x;
     })
+    
     .attr("y1", function(d) {
       return d.source.y;
     })
@@ -100,8 +108,8 @@ function update() {
     })
     .attr("y2", function(d) {
       return d.target.y;
-    });
-
+      
+    })
   // Exit any old links.
   link.exit().remove();
 
@@ -113,7 +121,7 @@ function update() {
   
   // .style("fill", color); //change node color after click
 
-  node.transition().attr("r", radius);
+  node.transition().ease('easeSinIn').duration(20).attr("r", radius);
   
   // Enter any new nodes.
   node
@@ -147,14 +155,19 @@ function update() {
   .attr("text-anchor", "middle")
   .attr("alignment-baseline","middle")
   .attr("class", "title")
+  .attr("id", function(d){
+    if(d.id=="root"){
+      return "root";
+    }
+  })
   .style("fill","white")
-
+  .on("click", click).call(force.drag);
   title.selectAll("tspan.text")
   .data(function(d){
-    if(d.id != "root"){
-      return d.label.split(" ");
+    if(d.id == "root"){
+      return d.label.split("\n");
     }
-    return d.label.split("\n");
+    return d.label.split(" ");
   })
   .enter()
   .append("tspan")
@@ -165,10 +178,19 @@ function update() {
   .attr("dy", 18);
   
   
-  svg.select("text.title").style("fill","black");//fill color at the first node
+  // svg.select("text.title").style("fill","white");//fill color at the first node
   // Exit any old titles.
+ svg.selectAll('text#root').style("fill","black");
   title.exit().remove();
+
+
+  //change line color based on node color
+  d3.selectAll('line').attr("class", function(d){
+    return "link"+" " + d.target.color;
+  });
+  
 }
+
 
 
 function tick() {
@@ -201,16 +223,16 @@ function color(d) {
       case "root": //adverb
         return "white";
         break;
-      case "lv1": //lightBlue
+      case "lv1": //navyBlue
         return "#003b55";
         break;
-      case "lv2": //lightGreen
+      case "lv2": //lightBlue
         return "#26b5c4";
         break;
-      case "lv3": //dardOrange
+      case "lv3": //Green
         return "#a2c859";
         break;
-      default:
+      default: //pinkRed
         return "red";
   }
 }
@@ -264,6 +286,7 @@ function flatten(root) {
   return nodes;
 }
 
+
 function box_force() { 
   for (var i = 0, n = nodes.length; i < n; ++i) {
     curr_node = nodes[i];
@@ -271,7 +294,6 @@ function box_force() {
     curr_node.y = Math.max(radius, Math.min(h - radius, curr_node.y));
   }
 }
-console.log(node);
 
 function collapseAll(d){
     if (d.children ){
@@ -283,6 +305,7 @@ function collapseAll(d){
         d._children.forEach(collapseAll);
     }
   }
+
 function setParents(d, p){
   d._parent = p;
 if (d.children) {
@@ -290,4 +313,10 @@ if (d.children) {
 } else if (d._children) {
     d._children.forEach(function(e){ setParents(e,d);});
 }
+}
+
+function setLineColor(d){
+  
+  
+ 
 }

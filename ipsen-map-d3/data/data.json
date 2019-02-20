@@ -9,7 +9,7 @@
       "id": "thearapeutic-area",
       "label": "Theara- peutic Area",
       "color":"lv1",
-      "desc" :" Thearapeutic Area - some test ", 
+      "desc" :" Thearapeutic Area - some test ",
       "children": [
         {
           "id": "rare-disease",
@@ -75,6 +75,7 @@
           "children": [
             {
               "id": "item-1-b1",
+              "color":"lv3",
               "label": "Item 1B1",
               "desc" :" some test"
             }

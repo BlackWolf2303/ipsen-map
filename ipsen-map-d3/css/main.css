@@ -12,7 +12,8 @@ html {
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
-  font-size: 13px; }
+  font-size: 13px;
+  font-family: Arial; }
 
 /* Sections
    ========================================================================== */
@@ -7909,23 +7910,26 @@ header {
   margin-top: 20px; }
   header .container {
     min-height: 120px; }
+  header .logo img {
+    height: 100px; }
   header .button-wrapper {
     float: right; }
     header .button-wrapper .btn {
       display: inline-block;
       background-color: white;
-      color: green;
+      color: #26b5c4;
       font-weight: bold;
-      border: 1px solid black;
+      border: 1px solid #26b5c4;
       padding-top: 0;
       padding-bottom: 0;
       font-size: 13px;
       min-width: 30px;
       min-height: 30px;
-      border-radius: 50%; }
+      margin-right: 10px;
+      border-radius: 30px; }
       @media (max-width: 992px) {
         header .button-wrapper .btn {
-          max-width: 170px;
+          max-width: 30px;
           float: right; } }
       header .button-wrapper .btn:hover {
         background-color: lightgrey; }
@@ -7933,7 +7937,7 @@ header {
       margin-bottom: 20px; }
 
 #layout .tree-content {
-  background: #f5f2ec;
+  background: white;
   text-align: center; }
   @media (max-width: 992px) {
     #layout .tree-content #wrap-category-title {
@@ -7943,10 +7947,11 @@ header {
       text-align: left; } }
   #layout .tree-content #category-title {
     display: inline-block;
-    font-weight: bold;
+    font-weight: 400;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: white; }
+    color: #003b55;
+    font-size: 26px; }
     @media (max-width: 992px) {
       #layout .tree-content #category-title {
         margin-top: 0;
@@ -7967,7 +7972,7 @@ header {
     font-size: 10px; }
     #layout .tree-content .missing-content a {
       text-decoration: underline;
-      color: white;
+      color: #26b5c4;
       font-weight: bold; }
   #layout .tree-content .hidden {
     display: none; }
@@ -7976,7 +7981,8 @@ header {
   #layout .tree-content .missing-content-position-2 {
     margin-left: 605px; }
   #layout .tree-content .wrap-message {
-    color: white; }
+    color: #26b5c4;
+    background-color: #f7f5f7; }
 #layout #suggestion-button {
   cursor: pointer; }
 
@@ -7991,16 +7997,22 @@ header {
   background-color: transparent; }
   .fjs-container #searchMap circle.node {
     cursor: pointer;
-    stroke: #34495e;
+    stroke: #0e63ce;
     stroke-width: 0px;
     box-sizing: border-box;
     stroke-location: inside; }
   .fjs-container #searchMap line.link {
     fill: none;
-    stroke: #34495e;
     stroke-width: 1px; }
+  .fjs-container #searchMap line.link.lv1 {
+    stroke: #003b55; }
+  .fjs-container #searchMap line.link.lv2 {
+    stroke: #26b5c4; }
+  .fjs-container #searchMap line.link.lv3 {
+    stroke: #a2c859; }
   .fjs-container #searchMap .title {
-    font: bold 13px arial; }
+    font: bold 13px arial;
+    cursor: pointer; }
   @media (max-width: 992px) {
     .fjs-container {
       display: flex; } }
