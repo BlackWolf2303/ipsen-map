@@ -194,22 +194,23 @@ function update() {
 
 
 function tick() {
+  node
+    .attr("cx", function(d) {
+      return d.x = Math.max(radius(d), Math.min(w - radius(d), d.x));
+    })
+
+    .attr("cy", function(d) {
+      return d.y = Math.max(radius(d), Math.min(h - radius(d), d.y));
+    });
+    // .attr("cx", function(d) { return d.x = Math.max(radius, Math.min(w - radius, d.x)); })
+    // .attr("cy", function(d) { return d.y = Math.max(radius, Math.min(h - radius, d.y)); });
   link
     .attr("x1", function(d) { return d.source.x; })
     .attr("y1", function(d) { return d.source.y; })
     .attr("x2", function(d) { return d.target.x; })
     .attr("y2", function(d) { return d.target.y; });
-
-  node
-    .attr("cx", function(d) {
-      return d.x;
-    })
-    .attr("cy", function(d) {
-      return d.y;
-    })
-    // .attr("cx", function(d) { return d.x = Math.max(radius, Math.min(w - radius, d.x)); })
-    // .attr("cy", function(d) { return d.y = Math.max(radius, Math.min(h - radius, d.y)); });
-  title.attr("transform", function(d) {
+  
+    title.attr("transform", function(d) {
     return "translate(" + (d.x-30) + "," + (d.y-30) + ")";
   });
 }
