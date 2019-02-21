@@ -17,29 +17,31 @@
 // // })
 
 //<=======JQUERY START =========>
-jQuery(function($) {});
+jQuery(function($) {
+  $('.logo .btn').on('click', function(){
+    $(this).siblings().removeClass('button-active');
+    $(this).addClass('button-active');
+  })
+});
 
+//<=======D3 START =========>
 
-//D3
-
-
+//Collapsible Force Layout D3
 var w = 1110,
   h = 700,
   node,
   link,
   root;
 
- 
-
 var force = d3.layout
   .force()
   .on("tick", tick)
-  .friction(0.8)
-  .gravity(0.001)
-  .linkStrength(1)
+  .friction(0.8)//0.8
+  .gravity(0.001)//0.001
+  .linkStrength(3)//1
   .charge((d) => -radius(d) * 19)
   .linkDistance(function(d) {
-    return d.target._children ? 180 : 130;
+    return d.target._children ? 190 : 130;
   })
   .size([w, h -160])
   // .force("box_force", box_force);
@@ -175,7 +177,7 @@ function update() {
   .text(d => d)
   .attr("x", 20)
   .attr("dx", 10)
-  .attr("dy", 18);
+  .attr("dy", 20);
   
   
   // svg.select("text.title").style("fill","white");//fill color at the first node
@@ -211,7 +213,7 @@ function tick() {
     .attr("y2", function(d) { return d.target.y; });
   
     title.attr("transform", function(d) {
-    return "translate(" + (d.x-30) + "," + (d.y-30) + ")";
+    return "translate(" + (d.x-30) + "," + (d.y-35) + ")";
   });
 }
 
@@ -288,13 +290,13 @@ function flatten(root) {
 }
 
 
-function box_force() { 
-  for (var i = 0, n = nodes.length; i < n; ++i) {
-    curr_node = nodes[i];
-    curr_node.x = Math.max(radius, Math.min(w - radius, curr_node.x));
-    curr_node.y = Math.max(radius, Math.min(h - radius, curr_node.y));
-  }
-}
+// function box_force() { 
+//   for (var i = 0, n = nodes.length; i < n; ++i) {
+//     curr_node = nodes[i];
+//     curr_node.x = Math.max(radius, Math.min(w - radius, curr_node.x));
+//     curr_node.y = Math.max(radius, Math.min(h - radius, curr_node.y));
+//   }
+// }
 
 function collapseAll(d){
     if (d.children ){

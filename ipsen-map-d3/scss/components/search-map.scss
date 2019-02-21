@@ -30,7 +30,7 @@
       stroke:#a2c859;
     }
     .title {
-      font: bold 13px arial; 
+      font: 13px arial; 
       cursor: pointer;
     }
 
@@ -53,13 +53,13 @@
   }
 }
 
-  #welconme-message {
-    position: absolute;
-    display: inline-block;
-    height: 20px;
-  }
+#welconme-message {
+  position: absolute;
+  display: inline-block;
+  min-height: 20px;
+}
 
-  .active {
-      color: rgb(214, 81, 125);
-  }
+.active {
+    color: rgb(214, 81, 125);
+}
 

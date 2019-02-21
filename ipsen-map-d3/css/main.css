@@ -7,6 +7,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@import url(../../data/icomoon/fonts.css);
 html {
   line-height: 1.15;
   /* 1 */
@@ -310,6 +311,8 @@ template {
 li {
   list-style: none; }
 
+/* Font
+========================================================================== */
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -7918,23 +7921,26 @@ header {
       display: inline-block;
       background-color: white;
       color: #26b5c4;
-      font-weight: bold;
+      font-weight: 300;
       border: 1px solid #26b5c4;
       padding-top: 0;
       padding-bottom: 0;
+      padding-left: 20px;
+      padding-right: 20px;
       font-size: 13px;
       min-width: 30px;
-      min-height: 30px;
+      min-height: 25px;
       margin-right: 10px;
-      border-radius: 30px; }
+      border-radius: 25px; }
       @media (max-width: 992px) {
         header .button-wrapper .btn {
           max-width: 30px;
           float: right; } }
       header .button-wrapper .btn:hover {
         background-color: lightgrey; }
-    header .button-wrapper .pin-list {
-      margin-bottom: 20px; }
+    header .button-wrapper .button-active {
+      color: #003b55;
+      border-color: #003b55; }
 
 #layout .tree-content {
   background: white;
@@ -7951,7 +7957,7 @@ header {
     padding-top: 5px;
     padding-bottom: 5px;
     color: #003b55;
-    font-size: 26px; }
+    font-size: 35px; }
     @media (max-width: 992px) {
       #layout .tree-content #category-title {
         margin-top: 0;
@@ -7965,15 +7971,21 @@ header {
     font-weight: 900;
     content: "\f053"; }
   #layout .tree-content .missing-content {
-    text-align: left;
+    background-color: #f7f5f7;
+    text-align: center;
     max-width: 250px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 10px; }
+    font-size: 10px;
+    max-width: 300px;
+    min-height: 90px;
+    padding: 20px; }
+    #layout .tree-content .missing-content span {
+      color: grey; }
     #layout .tree-content .missing-content a {
       text-decoration: underline;
       color: #26b5c4;
-      font-weight: bold; }
+      font-weight: 400; }
   #layout .tree-content .hidden {
     display: none; }
   #layout .tree-content .missing-content-position-1 {
@@ -7982,7 +7994,9 @@ header {
     margin-left: 605px; }
   #layout .tree-content .wrap-message {
     color: #26b5c4;
-    background-color: #f7f5f7; }
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; }
 #layout #suggestion-button {
   cursor: pointer; }
 
@@ -8011,7 +8025,7 @@ header {
   .fjs-container #searchMap line.link.lv3 {
     stroke: #a2c859; }
   .fjs-container #searchMap .title {
-    font: bold 13px arial;
+    font: 13px arial;
     cursor: pointer; }
   @media (max-width: 992px) {
     .fjs-container {
@@ -8032,7 +8046,7 @@ header {
 #welconme-message {
   position: absolute;
   display: inline-block;
-  height: 20px; }
+  min-height: 20px; }
 
 .active {
   color: #d6517d; }
@@ -8058,15 +8072,57 @@ header {
     background-color: grey;
     border-color: grey; }
 
-.modal .modal-dialog .modal-title {
-  font-weight: bold; }
-.modal .modal-dialog .modal-body li {
-  list-style-type: disc; }
-.modal .modal-dialog .modal-body .suggestedContent {
-  border: 1px solid grey;
-  margin-bottom: 10px; }
-.modal .modal-dialog .modal-body .selected-platform label {
-  margin-right: 10px; }
+.modal .modal-dialog .modal-content {
+  min-width: 360px;
+  border-radius: 10px;
+  background-color: #003b55;
+  color: white; }
+.modal .modal-dialog .modal-header {
+  border-bottom: 0px;
+  padding-top: 20px; }
+  .modal .modal-dialog .modal-header .modal-title {
+    color: white;
+    font-weight: 400; }
+.modal .modal-dialog .modal-body {
+  height: 200px;
+  margin-right: 8px;
+  overflow-y: scroll;
+  /* Track */
+  /* Handle */ }
+  .modal .modal-dialog .modal-body ul {
+    padding-left: 0px; }
+  .modal .modal-dialog .modal-body li {
+    list-style-type: none;
+    margin-top: 1rem;
+    line-height: 13px;
+    background: url(../../data/push-pin.svg) no-repeat left top;
+    background-size: 13px;
+    fill: #003b55;
+    padding: 0px 0px 10px 24px;
+    border-bottom: 1px solid #195b7c; }
+  .modal .modal-dialog .modal-body .suggestedContent {
+    border: 1px solid grey;
+    margin-bottom: 10px; }
+  .modal .modal-dialog .modal-body .selected-platform label {
+    margin-right: 10px; }
+  .modal .modal-dialog .modal-body::-webkit-scrollbar {
+    width: 4px;
+    cursor: pointer; }
+  .modal .modal-dialog .modal-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px; }
+  .modal .modal-dialog .modal-body::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #27b2c5;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer; }
+  .modal .modal-dialog .modal-body::-webkit-scrollbar-thumb:window-inactive {
+    background: #27b2c5;
+    cursor: pointer; }
+.modal .modal-dialog .modal-footer {
+  border-top: 0px; }
 .modal .modal-dialog .suggestion-submit-button {
   min-width: 322px;
   float: left; }
@@ -8075,14 +8131,6 @@ header {
 @media (min-width: 576px) {
   .modal .modal-dialog {
     max-width: 350px; } }
-
-#searchHistoryModal .modal-body {
-  height: 200px;
-  overflow-y: scroll; }
-
-#pinListModal .modal-body {
-  height: 200px;
-  overflow-y: scroll; }
 
 /* Pages
 ========================================================================== */

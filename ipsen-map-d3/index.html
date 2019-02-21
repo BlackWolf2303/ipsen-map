@@ -9,6 +9,10 @@
 
     <title>Ipsen map</title>
   </head>
+  <style>
+
+  </style>
+
   <body>
     
     <header>
@@ -17,26 +21,28 @@
           <div class="logo col">
               <div class="pin-history-button">
                   <div class="button-wrapper row">
-                      <div class="pin-list">
+
                           <button
-                            class="btn btn-format"
+                            class="btn btn-format pin-list"
                             data-toggle="modal"
                             data-target="#pinListModal"
                           >
                           <!-- <i class="fas fa-thumbtack"></i> -->
+                          <span class="icon-push-pin">&nbsp</span>
                           Pin List
                           </button>
-                        </div>
-                      <div>
+
+
                         <button
-                          class="btn btn-format "
+                          class="btn btn-format search-history"
                           data-toggle="modal"
                           data-target="#searchHistoryModal"
                         >
                         <!-- <i class="far fa-file-alt"></i> -->
+                        <span class="icon-Combined-Shape">&nbsp</span>
                         Search History
                         </button>
-                      </div>
+
                     
                   </div>
                 </div>
@@ -70,16 +76,16 @@
           </div>
           
           <div class="wrap-message">
-            <p class="message missing-content">
-              Didn't find what you're looking for?<br />
+            <div class="message missing-content">
+              <span>Didn't find what you're looking for?</span><br />
               <a
                 id="suggestion-button"
                 data-toggle="modal"
                 data-target="#suggestionFormModal"
                 >Please submit additional content suggestions or share your
-                feedback with us.</a
-              >
-            </p>
+                feedback with us.
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -122,18 +128,27 @@
           </div>
           <div class="modal-body">
             <ul>
-              Not available!
+            
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
+              <li>Not available yet!</li>
             </ul>
           </div>
           <div class="modal-footer">
-            <button
+            <!-- <button
               type="button"
               class="btn btn-secondary"
               data-dismiss="modal"
             >
               Close
             </button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            <button type="button" class="btn btn-primary">Save changes</button> -->
           </div>
         </div>
       </div>
