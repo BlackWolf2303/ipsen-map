@@ -1,15 +1,36 @@
 // Modal
 .modal {
+  left: 375px;
+  button.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    background-color: #27b2c5;
+    padding: 0;
+    border-radius: 50%;
+    line-height: 26px;
+    opacity: 1;
+    span {
+      font-weight: 200;
+      color: white;
+      text-shadow: none;
+      font-size: 25px;
+    }
+  }
   .modal-dialog {
+  
 
     .modal-content {
       min-width: 360px;
       border-radius: 10px;
-      background-color: #003b55;
+      background-color: #003B55;
       color: white;
     }
 
     .modal-header {
+      position: relative;
       border-bottom: 0px;
       padding-top: 20px;
 
@@ -38,15 +59,23 @@
         padding: 0px 0px 10px 24px;
         border-bottom: 1px solid #195b7c;
       }
+      .oval-icon li {
+        background: url(../../data/Oval.svg) no-repeat left top;
+      }
 
       .suggestedContent {
-        border: 1px solid grey;
+        border: 1px solid #809daa;
+        border-radius: 10px;
         margin-bottom: 10px;
+        background-color: #003b55;
+
       }
 
       .selected-platform {
+        margin-bottom: 10px;
         label {
-          margin-right: 10px;
+          color: #809daa;
+          margin-bottom: 0px;
         }
       }
 
@@ -75,19 +104,41 @@
       }
 
     }
-
     
     .modal-footer {
       border-top: 0px;
+      justify-content:unset;
     }
 
-
-
-
-    .suggestion-submit-button {
-      min-width: 322px;
-      float: left;
+    //suggestion form
+    #suggestion-form {
+      min-width: 364px;
+      min-height: 358px;
+      .modal-body {
+        height: auto;
+        overflow-y: unset;
+        p {
+          margin-bottom: 10px;
+          line-height: 15px;
+        }
+      }
+      .suggestion-submit-button {
+        
+        min-width: 336px;
+        min-height: 40px;
+        float: left;
+        border: 1px solid #24B5C5;
+        font-size: 16px;
+        font-weight: 200;
+        color: #24B5C5;
+        border-radius: 40px;
+        background-color: #003b55;
+      }
+      ::placeholder {
+        color:#809daa;
+      }
     }
+
     .document-pin-button {
       min-width: 300px;
     }
@@ -99,4 +150,6 @@
   }
 
 }
-
+.modal-backdrop.show  {
+  opacity: 0;
+}

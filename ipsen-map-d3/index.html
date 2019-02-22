@@ -23,7 +23,7 @@
                   <div class="button-wrapper row">
 
                           <button
-                            class="btn btn-format pin-list"
+                            class="btn btn-format pin-list btn-selected-modal"
                             data-toggle="modal"
                             data-target="#pinListModal"
                           >
@@ -34,7 +34,7 @@
 
 
                         <button
-                          class="btn btn-format search-history"
+                          class="btn btn-format search-history btn-selected-modal"
                           data-toggle="modal"
                           data-target="#searchHistoryModal"
                         >
@@ -80,8 +80,10 @@
               <span>Didn't find what you're looking for?</span><br />
               <a
                 id="suggestion-button"
+                class="btn-selected-modal"
                 data-toggle="modal"
                 data-target="#suggestionFormModal"
+                
                 >Please submit additional content suggestions or share your
                 feedback with us.
               </a>
@@ -176,18 +178,15 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <ul>
+          <div class="modal-body ">
+            <ul class="oval-icon">
+                <li>Not > available > yet!</li>
+                <li>Not > available > yet!</li>
+                <li>Not > available > yet!</li>
             </ul>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
+
             <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
           </div>
         </div>
@@ -203,7 +202,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" id="suggestion-form">
           <form action="#" method="post">
             <div class="modal-header">
               <h6 class="modal-title" id="suggestionFormTitle">
@@ -224,30 +223,39 @@
                 name="Suggested Content"
                 class="suggestedContent"
                 placeholder=" Type..."
-                cols="44.5"
+                cols="45"
                 rows="3"
               ></textarea>
-              <div class="selected-platform">
-                <label><input type="checkbox">Chat Bot</label>
-                <label><input type="checkbox">Online Interactive Map</label>
-              </div>
 
               <p>I have some feedback to improve</p>
+              <div class="selected-platform">
+
+                  <label class="checkbox-button">
+                    <input type="checkbox" value="Chat Bot" class="checkbox-button__input" id="chatbot" name="chatbot">
+                    <span class="checkbox-button__control"></span>
+                    <span class="checkbox-button__label">Chat Bot</span>
+                  </label>
+                  <label class="checkbox-button">
+                    <input type="checkbox" value="Online Interactive Map" class="checkbox-button__input" id="online-map" name="online-map">
+                    <span class="checkbox-button__control"></span>
+                    <span class="checkbox-button__label">Online Interactive Map</span>
+                  </label>
+              </div>
               <textarea
                 name="Suggested Content"
                 class="suggestedContent"
                 placeholder=" Type..."
-                cols="44.5"
+                cols="45"
                 rows="3"
               ></textarea>
             </div>
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary suggestion-submit-button"
+                class="btn btn-secondary suggestion-submit-button "
                 data-dismiss="modal"
               >
-                Sutmit
+                Submit
               </button>
               <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>

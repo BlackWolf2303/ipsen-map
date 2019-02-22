@@ -16,14 +16,6 @@
 // //   return item+"px";
 // // })
 
-//<=======JQUERY START =========>
-jQuery(function($) {
-  $('.logo .btn').on('click', function(){
-    $(this).siblings().removeClass('button-active');
-    $(this).addClass('button-active');
-  })
-});
-
 //<=======D3 START =========>
 
 //Collapsible Force Layout D3
@@ -37,11 +29,11 @@ var force = d3.layout
   .force()
   .on("tick", tick)
   .friction(0.8)//0.8
-  .gravity(0.001)//0.001
+  .gravity(0.01)//0.001
   .linkStrength(3)//1
-  .charge((d) => -radius(d) * 19)
+  .charge((d) => -radius(d) * 50)
   .linkDistance(function(d) {
-    return d.target._children ? 190 : 130;
+    return d.target._children ? 180 : 130;
   })
   .size([w, h -160])
   // .force("box_force", box_force);
@@ -320,6 +312,15 @@ if (d.children) {
 
 function setLineColor(d){
   
-  
- 
 }
+
+//<=======JQUERY START =========>
+jQuery(function($) {
+  $('.btn-selected-modal').on('click', function(){
+    $(this).siblings().removeClass('button-active');
+    $(this).addClass('button-active');
+  })
+  console.log($('.btn-selected-modal'));
+  
+  
+});

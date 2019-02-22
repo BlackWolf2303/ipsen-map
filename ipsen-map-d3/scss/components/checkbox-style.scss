@@ -1,0 +1,58 @@
+.checkbox-button {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 11px 23px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  outline: 0;
+  background-color: transparent;
+}
+
+.checkbox-button__input {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-button__control {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  vertical-align: middle;
+  background-color: inherit;
+  color: #26b5c4;
+  border: 1px solid white;
+}
+
+.checkbox-button__input:checked + .checkbox-button__control:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 11px;
+  height: 11px;
+  background-color: #26b5c4;
+}
+
+.checkbox-button__input:checked + .checkbox-button__control {
+  border-color: white;
+}
+
+.checkbox-button__control {
+  transform: scale(0.75);
+}
+
+.checkbox-button__label {
+  margin-right: 30px;
+}
