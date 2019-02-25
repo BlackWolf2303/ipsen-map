@@ -1,6 +1,11 @@
 // Modal
 .modal {
-  left: 375px;
+  left: auto;
+  right: 0;
+  width: 390px;
+  height: 405px;
+  margin-top: 35vh;
+
   button.close {
     position: absolute;
     top: 0;
@@ -12,6 +17,7 @@
     border-radius: 50%;
     line-height: 26px;
     opacity: 1;
+
     span {
       font-weight: 200;
       color: white;
@@ -19,9 +25,9 @@
       font-size: 25px;
     }
   }
-  .modal-dialog {
-  
 
+  .modal-dialog {
+    max-height: 380px;
     .modal-content {
       min-width: 360px;
       border-radius: 10px;
@@ -145,11 +151,28 @@
   }
   @media (min-width: 576px){
     .modal-dialog {
-      max-width: 350px;
+      max-width: 360px;
+      
     }
   }
 
+  .modal-dialog-centered {
+    align-items: end;
+  }
+
+  button:focus {
+    outline: none;
+  }
 }
+
+//===Override===
 .modal-backdrop.show  {
   opacity: 0;
+}
+.modal-backdrop {
+  z-index: -1;
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }

@@ -8,30 +8,14 @@
   background-color:transparent;
 
   #searchMap {
-    circle.node {
-      cursor: pointer;
-      stroke: #0e63ce;
-      stroke-width: 0px;
-      box-sizing: border-box;
-      stroke-location: inside;
+    
+    .link {
+      stroke: #ccc;
     }
     
-    line.link {
-      fill: none;
-      stroke-width: 1px;
-    }
-    line.link.lv1 {
-      stroke:#003b55;
-    }
-    line.link.lv2 {
-      stroke:#26b5c4;
-    }
-    line.link.lv3 {
-      stroke:#a2c859;
-    }
-    .title {
-      font: 13px arial; 
-      cursor: pointer;
+    .node text {
+      pointer-events: none;
+      font: 10px sans-serif;
     }
 
   }
@@ -60,6 +44,6 @@
 }
 
 .active {
-    color: rgb(214, 81, 125);
+    fill: rgb(214, 81, 125)!important;
 }
 

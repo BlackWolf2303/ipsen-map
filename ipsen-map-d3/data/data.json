@@ -1,117 +1,119 @@
-[{
-  "id": "root",
-  "label": "What resource \n topic are you \n looking for?",
-  "radius":"root",
-  "color":"root",
-  "desc" :" ROOT - some test ", 
-  "children": [
-    {
-      "id": "thearapeutic-area",
-      "label": "Theara- peutic Area",
-      "color":"lv1",
-      "desc" :" Thearapeutic Area - some test ",
-      "children": [
-        {
-          "id": "rare-disease",
-          "color":"lv2",
-          "label": "Rare Disease",
-          "desc" :" Rare Disease - some test", 
-          "children": [
-            {
-              "id": "publication",
-              "color":"lv3",
-              "label": "Publication",
-              "desc" :" some test of publication" 
-            },
-            {
-              "id": "key-guidelines-others",
-              "color":"lv3",
-              "label": "Key Guidelines &Others",
-              "desc" :" some test of Key Guidelines & Others" 
-            },
-            {
-              "id": "training",
-              "color":"lv3",
-              "label": "Training",
-              "desc" :" some test" 
-            },
-            {
-              "id": "clinical-trials",
-              "color":"lv3",
-              "label": "Clinical Trials",
-              "desc" :" some test" 
-            },
-            {
-              "id": "congress-hightlights",
-              "color":"lv3",
-              "label": "Congress Hightlights",
-              "desc" :" some test" 
-            },
-            {
-              "id": "core-content",
-              "color":"lv3", 
-              "label": "Core content",
-              "desc" :" some test" 
-            },
-            {
-              "id": "contact",
-              "color":"lv3",
-              "label": "Contact",
-              "desc" :" some test" 
-            },
-            {
-              "id": "rare-diseases-share-point",
-              "color":"lv3",
-              "label": "Rare Diseases SharePoint",
-              "desc" :" some test"
-            }
-          ]
-        },
-        {
-          "id": "item-1-b",
-          "color":"lv2",
-          "label": "Item 1B",
-          "desc" :" some test",
-          "children": [
-            {
-              "id": "item-1-b1",
-              "color":"lv3",
-              "label": "Item 1B1",
-              "desc" :" some test"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "gmas",
-      "color":"lv1",
-      "label": "GMAS",
-      "desc" :" some test",
-      "children": [
-        {
-          "id": "example-2.1",
-          "color":"lv2",
-          "label": "example 2.1",
-          "desc" :" some test",
-          "children": [
-            {
-              "id": "example-2.1.1",
-              "color":"lv3",
-              "label": "example 2.1.1",
-              "desc" :" some test"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "useful-share-point-links",
-      "color":"lv1",
-      "label": "Useful SharePoint Links",
-      "desc" :" some test",
-      "children": []
-    }
-  ]
-
-}]
+{ 
+  "nodes":[{
+    "id": "root",
+    "label": "What resource \n topic are you \n looking for?",
+    "radius":"root",
+    "color":"root",
+    "desc" :" ROOT - some test ", 
+    "children": [
+      {
+        "id": "thearapeutic-area",
+        "label": "Theara- peutic Area",
+        "color":"lv1",
+        "desc" :" Thearapeutic Area - some test ",
+        "children": [
+          {
+            "id": "rare-disease",
+            "color":"lv2",
+            "label": "Rare Disease",
+            "desc" :" Rare Disease - some test", 
+            "children": [
+              {
+                "id": "publication",
+                "color":"lv3",
+                "label": "Publication",
+                "desc" :" some test of publication" 
+              },
+              {
+                "id": "key-guidelines-others",
+                "color":"lv3",
+                "label": "Key Guidelines &Others",
+                "desc" :" some test of Key Guidelines & Others" 
+              },
+              {
+                "id": "training",
+                "color":"lv3",
+                "label": "Training",
+                "desc" :" some test" 
+              },
+              {
+                "id": "clinical-trials",
+                "color":"lv3",
+                "label": "Clinical Trials",
+                "desc" :" some test" 
+              },
+              {
+                "id": "congress-hightlights",
+                "color":"lv3",
+                "label": "Congress Hightlights",
+                "desc" :" some test" 
+              },
+              {
+                "id": "core-content",
+                "color":"lv3", 
+                "label": "Core content",
+                "desc" :" some test" 
+              },
+              {
+                "id": "contact",
+                "color":"lv3",
+                "label": "Contact",
+                "desc" :" some test" 
+              },
+              {
+                "id": "rare-diseases-share-point",
+                "color":"lv3",
+                "label": "Rare Diseases SharePoint",
+                "desc" :" some test"
+              }
+            ]
+          },
+          {
+            "id": "item-1-b",
+            "color":"lv2",
+            "label": "Item 1B",
+            "desc" :" some test",
+            "children": [
+              {
+                "id": "item-1-b1",
+                "color":"lv3",
+                "label": "Item 1B1",
+                "desc" :" some test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gmas",
+        "color":"lv1",
+        "label": "GMAS",
+        "desc" :" some test",
+        "children": [
+          {
+            "id": "example-2.1",
+            "color":"lv2",
+            "label": "example 2.1",
+            "desc" :" some test",
+            "children": [
+              {
+                "id": "example-2.1.1",
+                "color":"lv3",
+                "label": "example 2.1.1",
+                "desc" :" some test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "useful-share-point-links",
+        "color":"lv1",
+        "label": "Useful SharePoint Links",
+        "desc" :" some test",
+        "children": []
+      }
+    ]
+  
+  }]
+}
